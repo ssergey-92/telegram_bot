@@ -1,0 +1,1 @@
+from . import api_hotels_formats_requests

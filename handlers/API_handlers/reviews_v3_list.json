@@ -1,0 +1,408 @@
+{
+    "data": {
+        "propertyInfo": {
+            "__typename": "PropertyInfo",
+            "id": "15838",
+            "reviewInfo": {
+                "__typename": "PropertyReviews",
+                "reviews": [
+                    {
+                        "__typename": "PropertyReview",
+                        "id": "6525a014c2d4635e202e3cb4",
+                        "brandType": "Hotels",
+                        "reviewScoreWithDescription": {
+                            "__typename": "LodgingEnrichedMessage",
+                            "accessibilityLabel": null,
+                            "value": "8/10 Very Good"
+                        },
+                        "reviewAuthorAttribution": null,
+                        "travelers": [],
+                        "submissionTimeLocalized": "Oct 10, 2023",
+                        "themes": null,
+                        "title": "",
+                        "text": "Loved the view from our room! We were overlooking the ball drop. It was a bit noisy, lots of sirens during the night. ",
+                        "photos": [],
+                        "stayDuration": "Denise, 3-night trip with friends",
+                        "reviewInteractionSections": [],
+                        "reviewRegion": {
+                            "id": "us",
+                            "__typename": "Mark"
+                        },
+                        "managementResponses": [],
+                        "translationInfo": null
+                    },
+                    {
+                        "__typename": "PropertyReview",
+                        "id": "652598d706a9745fbf02e73c",
+                        "brandType": "Expedia",
+                        "reviewScoreWithDescription": {
+                            "__typename": "LodgingEnrichedMessage",
+                            "accessibilityLabel": null,
+                            "value": "10/10 Exceptional"
+                        },
+                        "reviewAuthorAttribution": null,
+                        "travelers": [],
+                        "submissionTimeLocalized": "Oct 10, 2023",
+                        "themes": null,
+                        "title": "",
+                        "text": "Add water bottles in the room",
+                        "photos": [],
+                        "stayDuration": "Brenda, 4-night trip",
+                        "reviewInteractionSections": [],
+                        "reviewRegion": {
+                            "id": "us",
+                            "__typename": "Mark"
+                        },
+                        "managementResponses": [],
+                        "translationInfo": null
+                    },
+                    {
+                        "__typename": "PropertyReview",
+                        "id": "65258c9206a9745fbf02b70b",
+                        "brandType": "Orbitz",
+                        "reviewScoreWithDescription": {
+                            "__typename": "LodgingEnrichedMessage",
+                            "accessibilityLabel": null,
+                            "value": "10/10 Exceptional"
+                        },
+                        "reviewAuthorAttribution": null,
+                        "travelers": [],
+                        "submissionTimeLocalized": "Oct 10, 2023",
+                        "themes": null,
+                        "title": "",
+                        "text": "Great location, renovated, comfortable beds, clean, nice ambiance ",
+                        "photos": [],
+                        "stayDuration": "Claribel, 4-night family trip",
+                        "reviewInteractionSections": [],
+                        "reviewRegion": {
+                            "id": "us",
+                            "__typename": "Mark"
+                        },
+                        "managementResponses": [],
+                        "translationInfo": null
+                    },
+                    {
+                        "__typename": "PropertyReview",
+                        "id": "6525728ec2d4635e202d8bcb",
+                        "brandType": "Travelocity",
+                        "reviewScoreWithDescription": {
+                            "__typename": "LodgingEnrichedMessage",
+                            "accessibilityLabel": null,
+                            "value": "10/10 Exceptional"
+                        },
+                        "reviewAuthorAttribution": null,
+                        "travelers": [],
+                        "submissionTimeLocalized": "Oct 10, 2023",
+                        "themes": null,
+                        "title": "",
+                        "text": "Outstanding hotel",
+                        "photos": [],
+                        "stayDuration": null,
+                        "reviewInteractionSections": [],
+                        "reviewRegion": {
+                            "id": "us",
+                            "__typename": "Mark"
+                        },
+                        "managementResponses": [],
+                        "translationInfo": null
+                    },
+                    {
+                        "__typename": "PropertyReview",
+                        "id": "6525375a80f1f20298f86129",
+                        "brandType": "Expedia",
+                        "reviewScoreWithDescription": {
+                            "__typename": "LodgingEnrichedMessage",
+                            "accessibilityLabel": null,
+                            "value": "10/10 Exceptional"
+                        },
+                        "reviewAuthorAttribution": null,
+                        "travelers": [],
+                        "submissionTimeLocalized": "Oct 10, 2023",
+                        "themes": null,
+                        "title": "",
+                        "text": "Beautiful hotel!  Perfect location in the middle of Times Square with awesome view from the room!  Very safe - room keys needed for very efficient elevator system. Huge gym & bar. Very quiet rooms and spacious.  Professional staff for housekeeping and room service.  Would definitely stay there again!!!!",
+                        "photos": [],
+                        "stayDuration": "JAMES, 4-night family trip",
+                        "reviewInteractionSections": [],
+                        "reviewRegion": {
+                            "id": "us",
+                            "__typename": "Mark"
+                        },
+                        "managementResponses": [],
+                        "translationInfo": null
+                    },
+                    {
+                        "__typename": "PropertyReview",
+                        "id": "6524979635c4c00c8e395080",
+                        "brandType": "Expedia",
+                        "reviewScoreWithDescription": {
+                            "__typename": "LodgingEnrichedMessage",
+                            "accessibilityLabel": null,
+                            "value": "10/10 Exceptional"
+                        },
+                        "reviewAuthorAttribution": null,
+                        "travelers": [],
+                        "submissionTimeLocalized": "Oct 10, 2023",
+                        "themes": null,
+                        "title": "",
+                        "text": "Amazing time I had ",
+                        "photos": [],
+                        "stayDuration": "Andres, 3-night trip",
+                        "reviewInteractionSections": [],
+                        "reviewRegion": {
+                            "id": "us",
+                            "__typename": "Mark"
+                        },
+                        "managementResponses": [
+                            {
+                                "__typename": "ManagementResponse",
+                                "header": {
+                                    "__typename": "LodgingHeader",
+                                    "text": "Response from Guest Services Coordinator on Oct 10, 2023"
+                                },
+                                "response": "Dear Valued Guest, Thank you for choosing New York Marriott Marquis and for your great review. On behalf of our staff, thank you for the excellent rating! We are pleased to know how much you loved your stay. Whether visiting for a family vacation, a romantic getaway, or attending a conference, we enjoy being the perfect home base for your New York City stay. All of us at the New York Marriott Marquis look forward to having you visit with us again.Warm Regards,Sharifa AlphonsoGuest Services Coordinator"
+                            }
+                        ],
+                        "translationInfo": null
+                    },
+                    {
+                        "__typename": "PropertyReview",
+                        "id": "65248a6a7ba60858cd569636",
+                        "brandType": "Expedia",
+                        "reviewScoreWithDescription": {
+                            "__typename": "LodgingEnrichedMessage",
+                            "accessibilityLabel": null,
+                            "value": "10/10 Exceptional"
+                        },
+                        "reviewAuthorAttribution": null,
+                        "travelers": [],
+                        "submissionTimeLocalized": "Oct 9, 2023",
+                        "themes": null,
+                        "title": "",
+                        "text": "Very efficient.  Great price. Excellent hotel, Marriott Marquis.",
+                        "photos": [],
+                        "stayDuration": "Deborah, 4-night trip",
+                        "reviewInteractionSections": [],
+                        "reviewRegion": {
+                            "id": "us",
+                            "__typename": "Mark"
+                        },
+                        "managementResponses": [],
+                        "translationInfo": null
+                    },
+                    {
+                        "__typename": "PropertyReview",
+                        "id": "65235170a8b88308ebce7d1e",
+                        "brandType": "Expedia",
+                        "reviewScoreWithDescription": {
+                            "__typename": "LodgingEnrichedMessage",
+                            "accessibilityLabel": null,
+                            "value": "10/10 Exceptional"
+                        },
+                        "reviewAuthorAttribution": null,
+                        "travelers": [],
+                        "submissionTimeLocalized": "Oct 9, 2023",
+                        "themes": null,
+                        "title": "",
+                        "text": "Room is very clean and staff are friendly.  Very convenient",
+                        "photos": [],
+                        "stayDuration": "Bernadette, 3-night family trip",
+                        "reviewInteractionSections": [],
+                        "reviewRegion": {
+                            "id": "us",
+                            "__typename": "Mark"
+                        },
+                        "managementResponses": [
+                            {
+                                "__typename": "ManagementResponse",
+                                "header": {
+                                    "__typename": "LodgingHeader",
+                                    "text": "Response from GENERAL MANAGER on Oct 9, 2023"
+                                },
+                                "response": "Dear Valued Guest, Thank you for the generous rating of our hotel, the New York Marriott Marquis. We are delighted you enjoyed everything we offer, including our well-appointed accommodations and thoughtful hospitality. Located in the heart of Times Square on West 46th and Broadway, we want every guest to feel the magic of New York City from the moment they arrive! Thank you once more for choosing us, and we hope you will come back to see us soon.Warm Regards,Sharifa Alphonso,Guest Services Coordinator"
+                            }
+                        ],
+                        "translationInfo": null
+                    },
+                    {
+                        "__typename": "PropertyReview",
+                        "id": "65230584dc237062f590e4c5",
+                        "brandType": "Expedia",
+                        "reviewScoreWithDescription": {
+                            "__typename": "LodgingEnrichedMessage",
+                            "accessibilityLabel": null,
+                            "value": "10/10 Exceptional"
+                        },
+                        "reviewAuthorAttribution": null,
+                        "travelers": [],
+                        "submissionTimeLocalized": "Oct 8, 2023",
+                        "themes": null,
+                        "title": "",
+                        "text": "This hotel was wonderful! It was clean, the elevators were quick and easy, and it was located right in the middle of everything!! Great stay!",
+                        "photos": [],
+                        "stayDuration": "Holly, 3-night family trip",
+                        "reviewInteractionSections": [],
+                        "reviewRegion": {
+                            "id": "us",
+                            "__typename": "Mark"
+                        },
+                        "managementResponses": [],
+                        "translationInfo": null
+                    },
+                    {
+                        "__typename": "PropertyReview",
+                        "id": "6522d89437c0870b6f009314",
+                        "brandType": "Expedia",
+                        "reviewScoreWithDescription": {
+                            "__typename": "LodgingEnrichedMessage",
+                            "accessibilityLabel": null,
+                            "value": "4/10 Fair"
+                        },
+                        "reviewAuthorAttribution": null,
+                        "travelers": [],
+                        "submissionTimeLocalized": "Oct 8, 2023",
+                        "themes": null,
+                        "title": "",
+                        "text": "We booked this property with the intent of having a view of central park. When we checked in there was no view. We were told we could upgrade which we did and when we got to the room still no view of central park. After the first day we realized that neither refrigerator worked.  We told staff twice during our stay and they never fixed it.  We were also told that we had a $30a day credit that could be used on anything charged back to our room.  On day 4 after spending $30a day for 4 days we were informed that the drinks we were getting from their store did not qualify and so we are now being charged &120 for the precious purchases. \nBait and switch big time here.  ",
+                        "photos": [],
+                        "stayDuration": "Veronica, 7-night family trip",
+                        "reviewInteractionSections": [],
+                        "reviewRegion": {
+                            "id": "us",
+                            "__typename": "Mark"
+                        },
+                        "managementResponses": [],
+                        "translationInfo": null
+                    }
+                ],
+                "summary": {
+                    "__typename": "PropertyReviewSummary",
+                    "totalCount": {
+                        "__typename": "FormattedNumber",
+                        "raw": 2066
+                    }
+                },
+                "reviewFlag": null,
+                "writeReviewLink": {
+                    "__typename": "LodgingLinkMessage",
+                    "link": {
+                        "__typename": "LodgingLink",
+                        "clientSideAnalytics": {
+                            "__typename": "ClientSideAnalytics",
+                            "linkName": "writeReview",
+                            "referrerId": "Hotel-Information.write.reviews.link"
+                        },
+                        "uri": {
+                            "__typename": "HttpURI",
+                            "value": "https://www.hotels.com/trips"
+                        }
+                    },
+                    "value": "Write a review",
+                    "icon": null,
+                    "accessibilityLabel": "Write a review"
+                },
+                "sortAndFilter": {
+                    "__typename": "SortAndFilterViewModel",
+                    "sortAndFilter": [
+                        {
+                            "__typename": "FilterViewModel",
+                            "title": "travelerType",
+                            "label": "Traveler type",
+                            "options": [
+                                {
+                                    "__typename": "OptionViewModel",
+                                    "label": "Couples",
+                                    "isSelected": false,
+                                    "optionValue": "couples",
+                                    "description": null
+                                },
+                                {
+                                    "__typename": "OptionViewModel",
+                                    "label": "Solo travelers",
+                                    "isSelected": false,
+                                    "optionValue": "solo_travelers",
+                                    "description": null
+                                },
+                                {
+                                    "__typename": "OptionViewModel",
+                                    "label": "Business travelers",
+                                    "isSelected": false,
+                                    "optionValue": "business_travelers",
+                                    "description": null
+                                },
+                                {
+                                    "__typename": "OptionViewModel",
+                                    "label": "Families",
+                                    "isSelected": false,
+                                    "optionValue": "families",
+                                    "description": null
+                                },
+                                {
+                                    "__typename": "OptionViewModel",
+                                    "label": "Families with small children",
+                                    "isSelected": false,
+                                    "optionValue": "families_with_small_children",
+                                    "description": null
+                                },
+                                {
+                                    "__typename": "OptionViewModel",
+                                    "label": "Groups",
+                                    "isSelected": false,
+                                    "optionValue": "groups",
+                                    "description": null
+                                },
+                                {
+                                    "__typename": "OptionViewModel",
+                                    "label": "Travelers with pets",
+                                    "isSelected": false,
+                                    "optionValue": "travelers_with_pets",
+                                    "description": null
+                                }
+                            ]
+                        },
+                        {
+                            "__typename": "FilterViewModel",
+                            "title": "sortBy",
+                            "label": "Sort by",
+                            "options": [
+                                {
+                                    "__typename": "OptionViewModel",
+                                    "label": "Most relevant",
+                                    "isSelected": false,
+                                    "optionValue": "NEWEST_TO_OLDEST_BY_LANGUAGE",
+                                    "description": null
+                                },
+                                {
+                                    "__typename": "OptionViewModel",
+                                    "label": "Most recent",
+                                    "isSelected": false,
+                                    "optionValue": "NEWEST_TO_OLDEST",
+                                    "description": null
+                                },
+                                {
+                                    "__typename": "OptionViewModel",
+                                    "label": "Highest guest rating",
+                                    "isSelected": false,
+                                    "optionValue": "HIGHEST_TO_LOWEST_RATED",
+                                    "description": null
+                                },
+                                {
+                                    "__typename": "OptionViewModel",
+                                    "label": "Lowest guest rating",
+                                    "isSelected": false,
+                                    "optionValue": "LOWEST_TO_HIGHEST_RATED",
+                                    "description": null
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "reviewsExpando": {
+                    "__typename": "EGDSExpandoPeek",
+                    "collapsedLabel": "See more",
+                    "expandedLabel": "See less"
+                }
+            }
+        }
+    }
+}
