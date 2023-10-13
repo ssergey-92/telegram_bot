@@ -2,13 +2,18 @@ from os import getenv
 from sys import exit
 from dotenv import load_dotenv, find_dotenv
 
-if find_dotenv():
-    load_dotenv()
-    BOT_TOKEN = getenv('BOT_TOKEN')
-    RAPID_API_KEY = getenv('RAPID_API_KEY')
-else:
-    exit('File .env is not found.')
 
+def get_bottoken_apikey():
+    if find_dotenv():
+        load_dotenv()
+        BOT_TOKEN = getenv('BOT_TOKEN')
+        RAPID_API_KEY = getenv('RAPID_API_KEY')
+    else:
+        exit('File .env is not found.')
+    return BOT_TOKEN, RAPID_API_KEY
+
+
+BOT_TOKEN, RAPID_API_KEY = get_bottoken_apikey()
 BOT_COMMANDS = (
     ("start", "Start Bot", "Launching the bot."),
     ("cancel_search", "Cancel Current Search",

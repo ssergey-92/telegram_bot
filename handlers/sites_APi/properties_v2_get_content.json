@@ -1,0 +1,2762 @@
+{
+    "data": {
+        "propertyInfo": {
+            "__typename": "PropertyInfo",
+            "propertyContentSectionGroups": {
+                "__typename": "PropertyContentSectionGroups",
+                "aboutThisProperty": {
+                    "__typename": "PropertyContentSectionGroup",
+                    "sectionName": null,
+                    "sections": [
+                        {
+                            "__typename": "PropertyContentSection",
+                            "sectionName": null,
+                            "header": {
+                                "__typename": "LodgingHeader",
+                                "icon": null,
+                                "text": "About this property",
+                                "subText": null
+                            },
+                            "bodySubSections": [
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "New York Marriott Marquis",
+                                                "subText": null,
+                                                "icon": null,
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemMarkup",
+                                                    "content": {
+                                                        "__typename": "MarkupText",
+                                                        "text": "Located 2.7 mi (4.3 km) from the airport, New York Marriott Marquis offers a great location, putting you within just a 10-minute walk of Broadway and Times Square. Guests can visit the 24-hour fitness center for a workout or grab a bite to eat at The View Restaurant, one of 2 restaurants, which serves American cuisine and is open for dinner. Other highlights at this luxurious hotel include a bar/lounge and a snack bar/deli. Fellow travelers like the central location for the sightseeing and because it's just a short walk to public transportation: 49th St. Station is steps away and Times Sq. - 42 St. Station is 5 minutes. ",
+                                                        "markupType": "HTML"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 1
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Languages",
+                                                "subText": null,
+                                                "icon": null,
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "English, French, Spanish",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 1
+                                }
+                            ],
+                            "action": null
+                        },
+                        {
+                            "__typename": "PropertyContentSection",
+                            "sectionName": "cleaningAndSafetyPractices",
+                            "header": {
+                                "__typename": "LodgingHeader",
+                                "icon": null,
+                                "text": "Cleaning and safety practices",
+                                "subText": null
+                            },
+                            "bodySubSections": [
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Enhanced cleanliness measures",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "cleanliness",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "icon__cleanliness",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemTexts",
+                                                    "contents": [
+                                                        {
+                                                            "__typename": "PropertyContentText",
+                                                            "primary": {
+                                                                "__typename": "LodgingEnrichedMessage",
+                                                                "value": "Disinfectant is used to clean the property",
+                                                                "accessibilityLabel": null,
+                                                                "icon": null
+                                                            },
+                                                            "secondary": null
+                                                        },
+                                                        {
+                                                            "__typename": "PropertyContentText",
+                                                            "primary": {
+                                                                "__typename": "LodgingEnrichedMessage",
+                                                                "value": "Follows standard cleaning and disinfection practices of Commitment to Clean (Marriott)",
+                                                                "accessibilityLabel": null,
+                                                                "icon": null
+                                                            },
+                                                            "secondary": null
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 1
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Social distancing",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "social_distance",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "icon__social_distance",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemTexts",
+                                                    "contents": [
+                                                        {
+                                                            "__typename": "PropertyContentText",
+                                                            "primary": {
+                                                                "__typename": "LodgingEnrichedMessage",
+                                                                "value": "Social distancing measures in place",
+                                                                "accessibilityLabel": null,
+                                                                "icon": null
+                                                            },
+                                                            "secondary": null
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 1
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Safety measures",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "done",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "icon__done",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemTexts",
+                                                    "contents": [
+                                                        {
+                                                            "__typename": "PropertyContentText",
+                                                            "primary": {
+                                                                "__typename": "LodgingEnrichedMessage",
+                                                                "value": "Hand sanitizer provided",
+                                                                "accessibilityLabel": null,
+                                                                "icon": null
+                                                            },
+                                                            "secondary": null
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 1
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": null,
+                                                "subText": null,
+                                                "icon": null,
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "This information is provided by our partners.",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 1
+                                }
+                            ],
+                            "action": null
+                        }
+                    ]
+                },
+                "aboutThisHost": null,
+                "amenities": {
+                    "__typename": "PropertyContentSectionGroup",
+                    "sectionName": null,
+                    "sections": [
+                        {
+                            "__typename": "PropertyContentSection",
+                            "sectionName": "At a glance",
+                            "header": {
+                                "__typename": "LodgingHeader",
+                                "icon": null,
+                                "text": "At a glance",
+                                "subText": null
+                            },
+                            "bodySubSections": [
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Hotel size",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "done",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "done",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "1966 rooms",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Arranged over 49 floors",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Arriving/Leaving",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "done",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "done",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Check-in time from 4 PM - midnight",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Express check-in/out available",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Late check-in subject to availability",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Minimum check-in age: 18 ",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Check-out time is 11 AM",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Restrictions related to your trip",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "done",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "done",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Check COVID-19 restrictions.",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Special check-in instructions",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "done",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "done",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Front desk staff will greet guests on arrival",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "For more details, please contact the property using the information on the booking confirmation",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Required at check-in",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "done",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "done",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Credit card, debit card, or cash deposit required for incidental charges",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Government-issued photo ID may be required",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Minimum check-in age is 18 ",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Children",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "done",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "done",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "No cribs (infant beds)",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Pets",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "done",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "done",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Pets not allowed",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Internet",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "wifi",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "wifi",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Free WiFi in public areas",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "WiFi and wired Internet access in rooms*",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Parking",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "local_parking",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "local_parking",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Onsite valet parking (USD 70 per day)",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Other information",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "done",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "done",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Smoke-free property",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                }
+                            ],
+                            "action": null
+                        },
+                        {
+                            "__typename": "PropertyContentSection",
+                            "sectionName": "Property amenities",
+                            "header": {
+                                "__typename": "LodgingHeader",
+                                "icon": null,
+                                "text": "Property amenities",
+                                "subText": null
+                            },
+                            "bodySubSections": [
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Food and drink",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "local_dining",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "local_dining",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Buffet breakfast (surcharge) on weekday mornings 6:00 AM\u201311:30 AM",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "2 restaurants",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Bar/lounge",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Coffee shop",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Room service",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Snack bar/deli",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "What to do",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "lob_activities",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "lob_activities",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Shopping",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Free bicycles nearby",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Working away",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "business_center",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "business_center",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Business center",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "48 meeting rooms",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Computer station",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Conference center (124755 square feet of space)",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Services",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "room_service",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "room_service",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "24-hour front desk",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Concierge services",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Tour/ticket assistance",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Limo or town car service",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "On-site car rental",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Dry cleaning/laundry services",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Hair salon",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Free newspapers in lobby",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Luggage storage",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Wedding services",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Multilingual staff",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Porter/bellhop",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Facilities",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "done",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "done",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Built in 1985",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "ATM/banking",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Safe-deposit box at front desk",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Television in common areas",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "24-hour fitness center",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Banquet hall",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Accessibility",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "accessible",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "accessible",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Wheelchair accessible",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Elevator",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Elevator door width (inches): 42",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Accessible bathroom (select rooms)",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Roll-in shower (select rooms)",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Wheelchair-accessible path of travel",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Wheelchair-accessible concierge desk",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Wheelchair-accessible path to elevator",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Wheelchair-accessible registration desk",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Wheelchair-accessible registration desk height (inches): 28",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Wheelchair-accessible fitness center",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Wheelchair-accessible business center",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Wheelchair-accessible restaurant",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Wheelchair-accessible lounge",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Visual alarms in hallways",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Closed captioned TV",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Lowered electrical outlets in bathroom",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Height-adjustable showerhead",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Lever door handles",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Stair-free path to entrance",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                }
+                            ],
+                            "action": null
+                        },
+                        {
+                            "__typename": "PropertyContentSection",
+                            "sectionName": "Room amenities",
+                            "header": {
+                                "__typename": "LodgingHeader",
+                                "icon": null,
+                                "text": "Room amenities",
+                                "subText": null
+                            },
+                            "bodySubSections": [
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Be entertained",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "done",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "done",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "42-inch Smart TV",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Premium cable channels",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Netflix",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Pay movies",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Home comfort",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "done",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "done",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Air conditioning (climate-controlled)",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Coffee/tea maker",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Iron/ironing board",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Sleep well",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "done",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "done",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Hypo-allergenic bedding",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Down comforter",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Turndown service",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Premium bedding",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Freshen up",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "done",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "done",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Private bathroom",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Shower/tub combination",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Eco-friendly toiletries",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Hair dryer",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Towels",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Stay connected",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "done",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "done",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Desk",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Free newspapers",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "WiFi and wired internet for a surcharge",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Phone",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Desk chair",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "More",
+                                                "subText": null,
+                                                "icon": {
+                                                    "__typename": "Icon",
+                                                    "id": "done",
+                                                    "description": "",
+                                                    "size": null,
+                                                    "token": "done",
+                                                    "theme": null
+                                                },
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Daily housekeeping",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "In-room safe",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Connecting/adjoining rooms available",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Eco-friendly toiletries",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Recycling",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 2
+                                }
+                            ],
+                            "action": null
+                        }
+                    ]
+                },
+                "importantInfo": null,
+                "policies": {
+                    "__typename": "PropertyContentSectionGroup",
+                    "sectionName": null,
+                    "sections": [
+                        {
+                            "__typename": "PropertyContentSection",
+                            "sectionName": "Fees & policies",
+                            "header": {
+                                "__typename": "LodgingHeader",
+                                "icon": null,
+                                "text": "Fees & policies",
+                                "subText": null
+                            },
+                            "bodySubSections": [
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Mandatory fees",
+                                                "subText": null,
+                                                "icon": null,
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemMarkup",
+                                                    "content": {
+                                                        "__typename": "MarkupText",
+                                                        "text": "You'll be asked to pay the following charges by the property at check-in or check-out: <br/>",
+                                                        "markupType": "HTML"
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemMarkup",
+                                                    "content": {
+                                                        "__typename": "MarkupText",
+                                                        "text": "<ul><li><strong>Destination fee:</strong> USD 34.43 per accommodation, per night</li></ul>",
+                                                        "markupType": "HTML"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 1
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Optional extras",
+                                                "subText": null,
+                                                "icon": null,
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemMarkup",
+                                                    "content": {
+                                                        "__typename": "MarkupText",
+                                                        "text": "<ul><li><strong>WiFi</strong> is available in guestrooms for USD 16.95 per day (rates may vary)</li><li><strong>Wired Internet</strong> access is available in guestrooms for USD 16.95 per day (rates may vary)</li><li><strong>Buffet breakfast</strong> is offered for an extra charge of approximately USD 36.00 per person</li></ul>",
+                                                        "markupType": "HTML"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 1
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Parking",
+                                                "subText": null,
+                                                "icon": null,
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemMarkup",
+                                                    "content": {
+                                                        "__typename": "MarkupText",
+                                                        "text": "<ul><li>Valet parking costs USD 70 per day</li></ul>",
+                                                        "markupType": "HTML"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 1
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Hygiene & cleanliness",
+                                                "subText": null,
+                                                "icon": null,
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemMarkup",
+                                                    "content": {
+                                                        "__typename": "MarkupText",
+                                                        "text": "<p>This property advises that enhanced cleaning and guest safety measures are currently in place.</p><p>Disinfectant is used to clean the property.</p><p>Social distancing measures are in place and guests are provided with hand sanitizer.</p><p>This property affirms that it follows the cleaning and disinfection practices of Commitment to Clean (Marriott).</p>",
+                                                        "markupType": "HTML"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 1
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Policies",
+                                                "subText": null,
+                                                "icon": null,
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemTexts",
+                                                    "contents": [
+                                                        {
+                                                            "__typename": "PropertyContentText",
+                                                            "primary": {
+                                                                "__typename": "LodgingEnrichedMessage",
+                                                                "value": "The property has connecting/adjoining rooms, which are subject to availability and can be requested by contacting the property using the number on the booking confirmation. ",
+                                                                "accessibilityLabel": null,
+                                                                "icon": null
+                                                            },
+                                                            "secondary": null
+                                                        },
+                                                        {
+                                                            "__typename": "PropertyContentText",
+                                                            "primary": {
+                                                                "__typename": "LodgingEnrichedMessage",
+                                                                "value": "This property welcomes guests of all sexual orientations and gender identities (LGBTQ+ friendly).",
+                                                                "accessibilityLabel": null,
+                                                                "icon": null
+                                                            },
+                                                            "secondary": null
+                                                        },
+                                                        {
+                                                            "__typename": "PropertyContentText",
+                                                            "primary": {
+                                                                "__typename": "LodgingEnrichedMessage",
+                                                                "value": "This property accepts credit cards and cash.",
+                                                                "accessibilityLabel": null,
+                                                                "icon": null
+                                                            },
+                                                            "secondary": null
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 1
+                                },
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Also known as",
+                                                "subText": null,
+                                                "icon": null,
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Marquis New York Marriott",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Marriott Marquis",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Marriott Marquis Hotel",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Marriott Marquis New York",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Marriott New York",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Marriott New York Marquis",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "New York Marquis",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "New York Marriott",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "New York Marriott Marquis",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "New York Marriott Marquis Hotel",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Marriot Marquis",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Marriott Hotel New York",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Marriott Marquis Times Square",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Marriott New York City",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Marriott Times Square",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "New York City Marriott",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "New York Marriott Marquis Hotel New York City",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Marriot Marquis",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Marriott Times Square",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Marriott New York City",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "New York City Marriott",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Marriott Hotel New York",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Marriott Marquis New York",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "Marriott Marquis Times Square",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "New York Marriott Marquis Hotel",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "New York Marriott Marquis New York",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "New York Marriott Marquis Hotel New York",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemText",
+                                                    "content": {
+                                                        "__typename": "PropertyContentText",
+                                                        "primary": {
+                                                            "__typename": "LodgingEnrichedMessage",
+                                                            "value": "New York Marriott Marquis Hotel New York City",
+                                                            "accessibilityLabel": null,
+                                                            "icon": null
+                                                        },
+                                                        "secondary": null
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 1
+                                }
+                            ],
+                            "action": null
+                        }
+                    ]
+                },
+                "specialFeatures": {
+                    "__typename": "PropertyContentSectionGroup",
+                    "sectionName": null,
+                    "sections": [
+                        {
+                            "__typename": "PropertyContentSection",
+                            "sectionName": null,
+                            "header": {
+                                "__typename": "LodgingHeader",
+                                "icon": null,
+                                "text": "Special features",
+                                "subText": null
+                            },
+                            "bodySubSections": [
+                                {
+                                    "__typename": "PropertyContentSubSection",
+                                    "elements": [
+                                        {
+                                            "__typename": "PropertyContent",
+                                            "header": {
+                                                "__typename": "LodgingHeader",
+                                                "text": "Dining",
+                                                "subText": null,
+                                                "icon": null,
+                                                "headerImage": null
+                                            },
+                                            "items": [
+                                                {
+                                                    "__typename": "PropertyContentItemMarkup",
+                                                    "content": {
+                                                        "__typename": "MarkupText",
+                                                        "text": "The View Restaurant - This fine-dining restaurant specializes in American cuisine and serves dinner only. Reservations are required. ",
+                                                        "markupType": "HTML"
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemMarkup",
+                                                    "content": {
+                                                        "__typename": "MarkupText",
+                                                        "text": "Broadway Lounge & Terrace - This bar specializes in American cuisine and serves dinner only. Open daily. ",
+                                                        "markupType": "HTML"
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemMarkup",
+                                                    "content": {
+                                                        "__typename": "MarkupText",
+                                                        "text": "Crossroads Kitchen & Bar - This buffet restaurant specializes in American cuisine and serves breakfast, lunch, and dinner. Guests can enjoy drinks at the bar. Open daily. ",
+                                                        "markupType": "HTML"
+                                                    }
+                                                },
+                                                {
+                                                    "__typename": "PropertyContentItemMarkup",
+                                                    "content": {
+                                                        "__typename": "MarkupText",
+                                                        "text": "Broadway Lounge - This pub serves lunch and dinner. Guests can enjoy drinks at the bar. ",
+                                                        "markupType": "HTML"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "expando": null,
+                                    "maxColumns": 1
+                                }
+                            ],
+                            "action": null
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

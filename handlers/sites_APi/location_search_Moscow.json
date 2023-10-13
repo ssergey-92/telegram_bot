@@ -1,0 +1,305 @@
+{
+    "q": "Moscow",
+    "rid": "ff92b55c56a843c4bedf16a9ee55b3f5",
+    "rc": "OK",
+    "sr": [
+        {
+            "@type": "gaiaRegionResult",
+            "index": "0",
+            "gaiaId": "6126",
+            "type": "CITY",
+            "regionNames": {
+                "fullName": "Moscow, Idaho, United States of America",
+                "shortName": "Moscow",
+                "displayName": "Moscow, Idaho, United States",
+                "primaryDisplayName": "Moscow",
+                "secondaryDisplayName": "Idaho, United States",
+                "lastSearchName": "Moscow"
+            },
+            "essId": {
+                "sourceName": "GAI",
+                "sourceId": "6126"
+            },
+            "coordinates": {
+                "lat": "46.731651",
+                "long": "-117.001343"
+            },
+            "hierarchyInfo": {
+                "country": {
+                    "name": "United States",
+                    "isoCode2": "US",
+                    "isoCode3": "USA"
+                }
+            }
+        },
+        {
+            "@type": "gaiaRegionResult",
+            "index": "1",
+            "gaiaId": "553248634983524274",
+            "type": "CITY",
+            "regionNames": {
+                "fullName": "Moscow Mills, Missouri, United States of America",
+                "shortName": "Moscow Mills",
+                "displayName": "Moscow Mills, Missouri, United States",
+                "primaryDisplayName": "Moscow Mills",
+                "secondaryDisplayName": "Missouri, United States",
+                "lastSearchName": "Moscow Mills"
+            },
+            "essId": {
+                "sourceName": "GAI",
+                "sourceId": "553248634983524274"
+            },
+            "coordinates": {
+                "lat": "38.947827",
+                "long": "-90.918192"
+            },
+            "hierarchyInfo": {
+                "country": {
+                    "name": "United States",
+                    "isoCode2": "US",
+                    "isoCode3": "USA"
+                }
+            }
+        },
+        {
+            "@type": "gaiaRegionResult",
+            "index": "2",
+            "gaiaId": "553248634983131352",
+            "type": "CITY",
+            "regionNames": {
+                "fullName": "Moscow, Ohio, United States of America",
+                "shortName": "Moscow",
+                "displayName": "Moscow, Ohio, United States",
+                "primaryDisplayName": "Moscow",
+                "secondaryDisplayName": "Ohio, United States",
+                "lastSearchName": "Moscow"
+            },
+            "essId": {
+                "sourceName": "GAI",
+                "sourceId": "553248634983131352"
+            },
+            "coordinates": {
+                "lat": "38.857012",
+                "long": "-84.229102"
+            },
+            "hierarchyInfo": {
+                "country": {
+                    "name": "United States",
+                    "isoCode2": "US",
+                    "isoCode3": "USA"
+                }
+            }
+        },
+        {
+            "@type": "gaiaRegionResult",
+            "index": "3",
+            "gaiaId": "3000455365",
+            "type": "CITY",
+            "regionNames": {
+                "fullName": "Moscow, Pennsylvania, United States of America",
+                "shortName": "Moscow",
+                "displayName": "Moscow, Pennsylvania, United States",
+                "primaryDisplayName": "Moscow",
+                "secondaryDisplayName": "Pennsylvania, United States",
+                "lastSearchName": "Moscow"
+            },
+            "essId": {
+                "sourceName": "GAI",
+                "sourceId": "3000455365"
+            },
+            "coordinates": {
+                "lat": "41.338413",
+                "long": "-75.518501"
+            },
+            "hierarchyInfo": {
+                "country": {
+                    "name": "United States",
+                    "isoCode2": "US",
+                    "isoCode3": "USA"
+                }
+            }
+        },
+        {
+            "@type": "gaiaHotelResult",
+            "index": "4",
+            "hotelId": "3236",
+            "type": "HOTEL",
+            "regionNames": {
+                "fullName": "Best Western Plus University Inn, Moscow, Idaho, United States of America",
+                "shortName": "Best Western Plus University Inn",
+                "displayName": "Best Western Plus University Inn, Moscow, Idaho, United States",
+                "primaryDisplayName": "Best Western Plus University Inn",
+                "secondaryDisplayName": "Moscow, Idaho, United States",
+                "lastSearchName": "Best Western Plus University Inn"
+            },
+            "essId": {
+                "sourceName": "LCM",
+                "sourceId": "3236"
+            },
+            "coordinates": {
+                "lat": "46.73261",
+                "long": "-117.023415"
+            },
+            "hierarchyInfo": {
+                "country": {
+                    "isoCode3": "USA"
+                }
+            },
+            "cityId": "6126",
+            "hotelAddress": {
+                "street": "1516 W Pullman Rd",
+                "city": "Moscow",
+                "province": "ID"
+            }
+        },
+        {
+            "@type": "gaiaRegionResult",
+            "index": "5",
+            "gaiaId": "553248634998680509",
+            "type": "CITY",
+            "regionNames": {
+                "fullName": "Moscow, Tennessee, United States of America",
+                "shortName": "Moscow",
+                "displayName": "Moscow, Tennessee, United States",
+                "primaryDisplayName": "Moscow",
+                "secondaryDisplayName": "Tennessee, United States",
+                "lastSearchName": "Moscow"
+            },
+            "essId": {
+                "sourceName": "GAI",
+                "sourceId": "553248634998680509"
+            },
+            "coordinates": {
+                "lat": "35.062034",
+                "long": "-89.403963"
+            },
+            "hierarchyInfo": {
+                "country": {
+                    "name": "United States",
+                    "isoCode2": "US",
+                    "isoCode3": "USA"
+                }
+            }
+        },
+        {
+            "@type": "gaiaRegionResult",
+            "index": "6",
+            "gaiaId": "3000392822",
+            "type": "CITY",
+            "regionNames": {
+                "fullName": "Moscow, Maine, United States of America",
+                "shortName": "Moscow",
+                "displayName": "Moscow, Maine, United States",
+                "primaryDisplayName": "Moscow",
+                "secondaryDisplayName": "Maine, United States",
+                "lastSearchName": "Moscow"
+            },
+            "essId": {
+                "sourceName": "GAI",
+                "sourceId": "3000392822"
+            },
+            "coordinates": {
+                "lat": "45.071383",
+                "long": "-69.891073"
+            },
+            "hierarchyInfo": {
+                "country": {
+                    "name": "United States",
+                    "isoCode2": "US",
+                    "isoCode3": "USA"
+                }
+            }
+        },
+        {
+            "@type": "gaiaRegionResult",
+            "index": "7",
+            "gaiaId": "3000459094",
+            "type": "CITY",
+            "regionNames": {
+                "fullName": "Moscow, Texas, United States of America",
+                "shortName": "Moscow",
+                "displayName": "Moscow, Texas, United States",
+                "primaryDisplayName": "Moscow",
+                "secondaryDisplayName": "Texas, United States",
+                "lastSearchName": "Moscow"
+            },
+            "essId": {
+                "sourceName": "GAI",
+                "sourceId": "3000459094"
+            },
+            "coordinates": {
+                "lat": "30.913248",
+                "long": "-94.825211"
+            },
+            "hierarchyInfo": {
+                "country": {
+                    "name": "United States",
+                    "isoCode2": "US",
+                    "isoCode3": "USA"
+                }
+            }
+        },
+        {
+            "@type": "gaiaRegionResult",
+            "index": "8",
+            "gaiaId": "553248634983299317",
+            "type": "CITY",
+            "regionNames": {
+                "fullName": "Moscow, Kansas, United States of America",
+                "shortName": "Moscow",
+                "displayName": "Moscow, Kansas, United States",
+                "primaryDisplayName": "Moscow",
+                "secondaryDisplayName": "Kansas, United States",
+                "lastSearchName": "Moscow"
+            },
+            "essId": {
+                "sourceName": "GAI",
+                "sourceId": "553248634983299317"
+            },
+            "coordinates": {
+                "lat": "37.323635",
+                "long": "-101.205716"
+            },
+            "hierarchyInfo": {
+                "country": {
+                    "name": "United States",
+                    "isoCode2": "US",
+                    "isoCode3": "USA"
+                }
+            }
+        },
+        {
+            "@type": "gaiaHotelResult",
+            "index": "9",
+            "hotelId": "1352991",
+            "type": "HOTEL",
+            "regionNames": {
+                "fullName": "Moscow Hotel, Dubai, Dubai, United Arab Emirates",
+                "shortName": "Moscow Hotel",
+                "displayName": "Moscow Hotel, Dubai, Dubai, United Arab Emirates",
+                "primaryDisplayName": "Moscow Hotel",
+                "secondaryDisplayName": "Dubai, Dubai, United Arab Emirates",
+                "lastSearchName": "Moscow Hotel"
+            },
+            "essId": {
+                "sourceName": "LCM",
+                "sourceId": "1352991"
+            },
+            "coordinates": {
+                "lat": "25.259275",
+                "long": "55.322869"
+            },
+            "hierarchyInfo": {
+                "country": {
+                    "isoCode3": "ARE"
+                }
+            },
+            "cityId": "6053839",
+            "hotelAddress": {
+                "street": "Al Maktoum Street, Deira",
+                "city": "Dubai",
+                "province": ""
+            }
+        }
+    ]
+}
