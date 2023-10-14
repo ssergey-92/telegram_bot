@@ -1,0 +1,306 @@
+{
+    "q": "miami",
+    "rid": "ac0b09d5b709468985eb0b9ea7d85d68",
+    "rc": "OK",
+    "sr": [
+        {
+            "@type": "gaiaRegionResult",
+            "index": "0",
+            "gaiaId": "2297",
+            "type": "CITY",
+            "regionNames": {
+                "fullName": "Miami, Florida, United States of America",
+                "shortName": "Miami",
+                "displayName": "Miami, Florida, United States",
+                "primaryDisplayName": "Miami",
+                "secondaryDisplayName": "Florida, United States",
+                "lastSearchName": "Miami"
+            },
+            "essId": {
+                "sourceName": "GAI",
+                "sourceId": "2297"
+            },
+            "coordinates": {
+                "lat": "25.77178",
+                "long": "-80.19009"
+            },
+            "hierarchyInfo": {
+                "country": {
+                    "name": "United States",
+                    "isoCode2": "US",
+                    "isoCode3": "USA"
+                }
+            }
+        },
+        {
+            "@type": "gaiaRegionResult",
+            "index": "1",
+            "gaiaId": "8833",
+            "type": "CITY",
+            "regionNames": {
+                "fullName": "Miami Beach, Florida, United States of America",
+                "shortName": "Miami Beach",
+                "displayName": "Miami Beach, Florida, United States",
+                "primaryDisplayName": "Miami Beach",
+                "secondaryDisplayName": "Florida, United States",
+                "lastSearchName": "Miami Beach"
+            },
+            "essId": {
+                "sourceName": "GAI",
+                "sourceId": "8833"
+            },
+            "coordinates": {
+                "lat": "25.790653",
+                "long": "-80.130043"
+            },
+            "hierarchyInfo": {
+                "country": {
+                    "name": "United States",
+                    "isoCode2": "US",
+                    "isoCode3": "USA"
+                }
+            }
+        },
+        {
+            "@type": "gaiaRegionResult",
+            "index": "2",
+            "gaiaId": "6138745",
+            "type": "NEIGHBORHOOD",
+            "regionNames": {
+                "fullName": "South Beach, Miami Beach, Florida, United States of America",
+                "shortName": "South Beach",
+                "displayName": "South Beach, Miami Beach, Florida, United States",
+                "primaryDisplayName": "South Beach",
+                "secondaryDisplayName": "Miami Beach, Florida, United States",
+                "lastSearchName": "South Beach"
+            },
+            "essId": {
+                "sourceName": "GAI",
+                "sourceId": "6138745"
+            },
+            "coordinates": {
+                "lat": "25.774429",
+                "long": "-80.133241"
+            },
+            "hierarchyInfo": {
+                "country": {
+                    "name": "United States",
+                    "isoCode2": "US",
+                    "isoCode3": "USA"
+                }
+            }
+        },
+        {
+            "@type": "gaiaRegionResult",
+            "index": "3",
+            "gaiaId": "800070",
+            "type": "NEIGHBORHOOD",
+            "regionNames": {
+                "fullName": "Downtown Miami, Miami, Florida, United States of America",
+                "shortName": "Downtown Miami",
+                "displayName": "Downtown Miami, Miami, Florida, United States",
+                "primaryDisplayName": "Downtown Miami",
+                "secondaryDisplayName": "Miami, Florida, United States",
+                "lastSearchName": "Downtown Miami"
+            },
+            "essId": {
+                "sourceName": "GAI",
+                "sourceId": "800070"
+            },
+            "coordinates": {
+                "lat": "25.77451843041663",
+                "long": "-80.19139808371548"
+            },
+            "hierarchyInfo": {
+                "country": {
+                    "name": "United States",
+                    "isoCode2": "US",
+                    "isoCode3": "USA"
+                }
+            }
+        },
+        {
+            "@type": "gaiaRegionResult",
+            "index": "4",
+            "gaiaId": "4278605",
+            "type": "AIRPORT",
+            "regionNames": {
+                "fullName": "Miami, FL, United States of America (MIA-Miami Intl.)",
+                "shortName": "Miami, FL (MIA-Miami Intl.)",
+                "displayName": "Miami (MIA - Miami Intl.), Florida, United States",
+                "primaryDisplayName": "Miami (MIA - Miami Intl.)",
+                "secondaryDisplayName": "Florida, United States",
+                "lastSearchName": "Miami (MIA - Miami Intl.)"
+            },
+            "essId": {
+                "sourceName": "GAI",
+                "sourceId": "4278605"
+            },
+            "coordinates": {
+                "lat": "25.79509",
+                "long": "-80.27843"
+            },
+            "hierarchyInfo": {
+                "country": {
+                    "name": "United States",
+                    "isoCode2": "US",
+                    "isoCode3": "USA"
+                }
+            },
+            "isMinorAirport": "false"
+        },
+        {
+            "@type": "gaiaHotelResult",
+            "index": "5",
+            "hotelId": "19425",
+            "type": "HOTEL",
+            "regionNames": {
+                "fullName": "Miami International Airport Hotel, Miami, Florida, United States of America",
+                "shortName": "Miami International Airport Hotel",
+                "displayName": "Miami International Airport Hotel, Miami, Florida, United States",
+                "primaryDisplayName": "Miami International Airport Hotel",
+                "secondaryDisplayName": "Miami, Florida, United States",
+                "lastSearchName": "Miami International Airport Hotel"
+            },
+            "essId": {
+                "sourceName": "LCM",
+                "sourceId": "19425"
+            },
+            "coordinates": {
+                "lat": "25.794846",
+                "long": "-80.278453"
+            },
+            "hierarchyInfo": {
+                "country": {
+                    "isoCode3": "USA"
+                }
+            },
+            "cityId": "2297",
+            "hotelAddress": {
+                "street": "N.W. 20th & Lejeune Road",
+                "city": "Miami",
+                "province": "FL"
+            }
+        },
+        {
+            "@type": "gaiaHotelResult",
+            "index": "6",
+            "hotelId": "23294",
+            "type": "HOTEL",
+            "regionNames": {
+                "fullName": "Miami Airport Marriott, Miami, Florida, United States of America",
+                "shortName": "Miami Airport Marriott",
+                "displayName": "Miami Airport Marriott, Miami, Florida, United States",
+                "primaryDisplayName": "Miami Airport Marriott",
+                "secondaryDisplayName": "Miami, Florida, United States",
+                "lastSearchName": "Miami Airport Marriott"
+            },
+            "essId": {
+                "sourceName": "LCM",
+                "sourceId": "23294"
+            },
+            "coordinates": {
+                "lat": "25.783365",
+                "long": "-80.26399"
+            },
+            "hierarchyInfo": {
+                "country": {
+                    "isoCode3": "USA"
+                }
+            },
+            "cityId": "2297",
+            "hotelAddress": {
+                "street": "1201 NW Le Jeune Road, Building A",
+                "city": "Miami",
+                "province": "FL"
+            }
+        },
+        {
+            "@type": "gaiaRegionResult",
+            "index": "7",
+            "gaiaId": "6125791",
+            "type": "POI",
+            "regionNames": {
+                "fullName": "PortMiami, Miami Beach, Florida, United States of America",
+                "shortName": "PortMiami",
+                "displayName": "PortMiami, Miami Beach, Florida, United States",
+                "primaryDisplayName": "PortMiami",
+                "secondaryDisplayName": "Miami Beach, Florida, United States",
+                "lastSearchName": "PortMiami"
+            },
+            "essId": {
+                "sourceName": "GAI",
+                "sourceId": "6125791"
+            },
+            "coordinates": {
+                "lat": "25.7722380835279",
+                "long": "-80.16507136803843"
+            },
+            "hierarchyInfo": {
+                "country": {
+                    "name": "United States",
+                    "isoCode2": "US",
+                    "isoCode3": "USA"
+                }
+            }
+        },
+        {
+            "@type": "gaiaRegionResult",
+            "index": "8",
+            "gaiaId": "6131573",
+            "type": "CITY",
+            "regionNames": {
+                "fullName": "Miami Gardens, Florida, United States of America",
+                "shortName": "Miami Gardens",
+                "displayName": "Miami Gardens, Florida, United States",
+                "primaryDisplayName": "Miami Gardens",
+                "secondaryDisplayName": "Florida, United States",
+                "lastSearchName": "Miami Gardens"
+            },
+            "essId": {
+                "sourceName": "GAI",
+                "sourceId": "6131573"
+            },
+            "coordinates": {
+                "lat": "25.942038",
+                "long": "-80.245605"
+            },
+            "hierarchyInfo": {
+                "country": {
+                    "name": "United States",
+                    "isoCode2": "US",
+                    "isoCode3": "USA"
+                }
+            }
+        },
+        {
+            "@type": "gaiaRegionResult",
+            "index": "9",
+            "gaiaId": "55169",
+            "type": "CITY",
+            "regionNames": {
+                "fullName": "North Miami Beach, Florida, United States of America",
+                "shortName": "North Miami Beach",
+                "displayName": "North Miami Beach, Florida, United States",
+                "primaryDisplayName": "North Miami Beach",
+                "secondaryDisplayName": "Florida, United States",
+                "lastSearchName": "North Miami Beach"
+            },
+            "essId": {
+                "sourceName": "GAI",
+                "sourceId": "55169"
+            },
+            "coordinates": {
+                "lat": "25.933149",
+                "long": "-80.162544"
+            },
+            "hierarchyInfo": {
+                "country": {
+                    "name": "United States",
+                    "isoCode2": "US",
+                    "isoCode3": "USA"
+                }
+            }
+        }
+    ]
+}
