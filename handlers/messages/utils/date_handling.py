@@ -22,13 +22,9 @@ def extract_date(call: CallbackQuery) -> Union[dict, bool]:
 
 
 def valid_check_in_date(check_in_date: dict) -> bool:
-    # converted_date = datetime(check_in_date["year"], check_in_date["month"],
-    #                           check_in_date["day"], 23, 59, 59)
-    # current_date = datetime.now()
     converted_date = date(check_in_date["year"], check_in_date["month"],
                           check_in_date["day"])
     current_date = date.today()
-    print(converted_date, current_date)
     if converted_date >= current_date:
         return True
     else:

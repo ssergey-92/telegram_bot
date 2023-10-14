@@ -1,4 +1,4 @@
-from . import messages, sites_APi
+from . import messages, sites_API
 
 
 import requests

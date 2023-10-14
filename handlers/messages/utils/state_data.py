@@ -3,16 +3,16 @@ from typing import Union, Any
 from loader import bot
 
 
-def save_state_data(chart_id: int, user_id: int, title: str,
-                    definition: Union[str, dict, int]) -> None:
+def save_state_data(chart_id: int, user_id: int, key: str,
+                    value: Union[str, dict, int, list]) -> None:
     with bot.retrieve_data(user_id, chart_id) as data:
-        data[title] = definition
+        data[key] = value
 
 
-def take_state_data(chart_id: int, user_id: int, title: str) -> Any:
+def take_state_data(chart_id: int, user_id: int, key: str) -> Any:
     with bot.retrieve_data(user_id, chart_id) as data:
-        data = data[title]
-    return data
+        value = data[key]
+    return value
 
 
 def delete_state(chat_id: int, user_id: int) -> None:

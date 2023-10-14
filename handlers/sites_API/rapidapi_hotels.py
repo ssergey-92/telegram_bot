@@ -1,12 +1,12 @@
 import json
 import jmespath
 from requests import get, post
-
+import os
 import backoff
 from json import dump
 from config_data.config import RAPID_API_KEY
 from pprint import pprint
-
+from abc import ABC
 base_url = url = "https://hotels4.p.rapidapi.com/"
 headers = {
     "X-RapidAPI-Key": RAPID_API_KEY,
@@ -14,15 +14,16 @@ headers = {
 }
 
 
-class HotelsApi:
+class HotelsApi(ABC):
 
     @staticmethod
-    def search_city(user_id: int, input_city: str, command: str) -> dict:
+    def search_city(user_id: int, input_city: str, command: str) -> list[dict]:
         response_data = HotelsApi._search_city_get_request(input_city)
-        HotelsApi._create_json_file(user_id, command, input_city,
-                                    HotelsApi.search_city.__name__, response_data)
-        sort_response_data = HotelsApi._sort_search_city_data(response_data)
-        return sort_response_data
+        file_name = HotelsApi._create_json_file(user_id, command, input_city,
+                                                HotelsApi.search_city.__name__, response_data)
+        sorted_data = HotelsApi._sort_search_city_data(file_name)
+        return sorted_data
+
     @staticmethod
     def get_hotels_in_city(self):
         pass
@@ -36,12 +37,10 @@ class HotelsApi:
                        timeout=10).json()
         return response
 
-
-
     @staticmethod
-    def _create_json_file(user_id, command, city_or_hotel, method_name, response):
-        print('create')
-        file_name = ("hotels_response_files/{user_id}_{command}_"
+    def _create_json_file(user_id: int, command: str, city_or_hotel: str,
+                          method_name: str, response: dict) -> str:
+        file_name = ("handlers/sites_API/hotels_response_files/{user_id}_{command}_"
                      "{city_or_hotel}_{method_name}.json").format(
             user_id=user_id,
             command=command,
@@ -49,15 +48,25 @@ class HotelsApi:
             method_name=method_name)
         with open(file_name, 'w', encoding='utf-8') as file:
             dump(response, file, indent=4)
+        return file_name
 
     @staticmethod
-    def _sort_search_city_data(response_data: dict) ->dict:
-        pass
+    def _sort_search_city_data(file_name: json) -> list[dict]:
+        with open(file_name, 'r', encoding='utf-8') as data:
+            json_data = json.load(data)
+        city_type = ["CITY", "NEIGHBORHOOD"]
+        sorted_data = list()
+        for i_data in enumerate(json_data["sr"]):
+            if i_data[1]["type"] in city_type:
+                sorted_data.append({"regionId": i_data[1]["gaiaId"],
+                                    "fullName": i_data[1]["regionNames"]["fullName"]})
+
+        return sorted_data
 
     @staticmethod
-    def _search_hotels_in_city(user_id: int, place_id: str, city_name: str, sort: str,
-                               min_price: int, max_price: int, check_in_date: dict,
-                               check_out_date: dict, travellers: int):
+    def _search_hotels_in_city(user_id: int, command: str, place_id: str,
+                               city_name: str, sort: str, min_price: int, max_price: int,
+                               check_in_date: dict, check_out_date: dict, travellers: int):
         location_endpoint = "properties/v2/list"
         search_url = "{}{}".format(base_url, location_endpoint)
 
@@ -86,13 +95,12 @@ class HotelsApi:
 
         response = post(url=search_url, json=payload,
                         headers=headers, timeout=10).json()
-        HotelsApi._create_json_file(user_id, command, city_name, HotelsApi._search_hotels_in_city.__name__,
-                                    response)
+        HotelsApi._create_json_file(user_id, command, city_name,
+                                    HotelsApi._search_hotels_in_city.__name__, response)
 
     @staticmethod
     def _get_hotel_details():
         pass
-
 
 # check_in_date = {"day": 15, "month": 10, "year": 2023}
 # check_out_date = {"day": 20, "month": 10, "year": 2023}
@@ -101,23 +109,3 @@ class HotelsApi:
 #                                 {"day": 15, "month": 10, "year": 2023},
 #                                 {"day": 20, "month": 10, "year": 2023},
 #                                 2)
-def create_budgest_hotels(file_name, quantity=10):
-    pass
-
-
-def test():
-    with open('hotels_response_files/7227_Madrid_location_search.json', 'r', encoding='utf-8') as data:
-        json_data = json.load(data)
-
-    city_type = ["CITY", "NEIGHBORHOOD"]
-
-    data_list = list()
-    for i_data in enumerate(json_data["sr"]):
-        print(i_data[1]["type"])
-        if i_data[1]["type"] in city_type:
-            data_list.append({"propertyId": i_data[1]["gaiaId"],
-                              "fullName": i_data[1]["regionNames"]["fullName"]
-                              })
-    print(data_list)
-
-test()
