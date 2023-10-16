@@ -10,7 +10,6 @@ class BudgetSearchStates(StatesGroup):
     hotels_amount = State()
     hotels_photo = State()
     hotels_photo_amount = State()
-    request_hotels = State()
-    response_hotels = State()
+
 
 

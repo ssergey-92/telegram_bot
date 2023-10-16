@@ -1,6 +1,7 @@
 from typing import Union, Callable
 from datetime import date
-from telebot.types import Message, CallbackQuery, InlineKeyboardMarkup
+from telebot.types import (Message, CallbackQuery, InlineKeyboardMarkup,
+                           InputMediaPhoto)
 
 from keyboards.inline_keyboard.calender.keyboards import (
     generate_calendar_days, generate_calendar_months)
@@ -14,11 +15,14 @@ from database.CRUD_interface import CrudDb
 from loader import bot
 from states.BudgetSearch import BudgetSearchStates
 from config_data.config import BOT_COMMANDS
-from .utils.state_data import save_state_data, take_state_data, delete_state
+from .utils.state_data import (save_state_data_by_key,
+                               retrieve_state_data_by_key,
+                               delete_state)
 from .utils.date_handling import (extract_date, valid_check_in_date,
                                   check_date_format, valid_check_out_date,
                                   convert_str_date_to_dict)
 from .utils.user_input_data_check import eng_language_check
+from .utils.response_for_user import create_response
 from handlers.sites_API.rapidapi_hotels import HotelsApi
 
 
@@ -33,6 +37,11 @@ def reply_msg_low_price(chat_id: int, user_id: int) -> None:
     CrudDb.create_entries(db, History, user_id, command)
     delete_state(chat_id, user_id)
     bot.set_state(user_id, BudgetSearchStates.input_city, chat_id)
+    with bot.retrieve_data(user_id, chat_id) as data:
+        data["command"] = command
+        data["min_price"] = 1
+        data["max_price"] = 1000000
+        data["sort"] = "PRICE_LOW_TO_HIGH"
     bot.send_message(chat_id, reply_text,
                      reply_markup=cancel_reply_keyboard)
 
@@ -51,16 +60,16 @@ def budget_input_city_state(message: Message) -> None:
                       state=BudgetSearchStates.confirm_city,
                       chat_id=message.chat.id
                       )
-        save_state_data(chart_id=message.chat.id,
-                        user_id=message.from_user.id,
-                        key='Input city',
-                        value=message.text)
-        sorted_data = HotelsApi.search_city(message.from_user.id,
-                                            received_text, BOT_COMMANDS[3][0])
-        save_state_data(chart_id=message.chat.id,
-                        user_id=message.from_user.id,
-                        key='searched_city_result',
-                        value=sorted_data)
+        save_state_data_by_key(chat_id=message.chat.id,
+                               user_id=message.from_user.id,
+                               key='Input city',
+                               value=message.text)
+        sorted_data = HotelsApi.check_city(message.from_user.id,
+                                           received_text, BOT_COMMANDS[3][0])
+        save_state_data_by_key(chat_id=message.chat.id,
+                               user_id=message.from_user.id,
+                               key='searched_city_result',
+                               value=sorted_data)
         reply_markup = create_search_city_inline_keyboard(sorted_data)
     bot.send_message(message.chat.id, reply_text, reply_markup=reply_markup)
 
@@ -78,8 +87,8 @@ def budget_confirm_city_state_cb(call: CallbackQuery):
                       chat_id=call.message.chat.id
                       )
     else:
-        searched_city_result = take_state_data(call.message.chat.id,
-                                               call.from_user.id, 'searched_city_result')
+        searched_city_result = retrieve_state_data_by_key(call.message.chat.id,
+                                                          call.from_user.id, 'searched_city_result')
         confirmed_city = searched_city_result[int(call.data)]
         is_confirmed = True
         reply_text = "Select check in date:"
@@ -89,8 +98,8 @@ def budget_confirm_city_state_cb(call: CallbackQuery):
 
 @bot.message_handler(state=BudgetSearchStates.confirm_city)
 def budget_confirm_city_state_msg(message: Message) -> None:
-    searched_city_result = take_state_data(message.chat.id,
-                                           message.from_user.id, 'searched_city_result')
+    searched_city_result = retrieve_state_data_by_key(message.chat.id,
+                                                      message.from_user.id, 'searched_city_result')
     reply_markup = create_search_city_inline_keyboard(searched_city_result)
     reply_text = "Kindly select one of the below options!"
     budget_reply_msg_confirm_city(message.from_user.id, message.chat.id,
@@ -106,10 +115,14 @@ def budget_reply_msg_confirm_city(user_id: int, chat_id: int, reply_text: str,
                       state=BudgetSearchStates.check_in_date,
                       chat_id=chat_id
                       )
-        save_state_data(chart_id=chat_id,
-                        user_id=user_id,
-                        key='regionId',
-                        value=confirmed_city['regionId'])
+        save_state_data_by_key(chat_id=chat_id,
+                               user_id=user_id,
+                               key='regionId',
+                               value=confirmed_city['regionId'])
+        save_state_data_by_key(chat_id=chat_id,
+                               user_id=user_id,
+                               key='fullName',
+                               value=confirmed_city['fullName'])
         now = date.today()
         reply_markup = generate_calendar_days(year=now.year,
                                               month=now.month)
@@ -181,10 +194,10 @@ def budget_reply_msg_check_in_date(user_id: int, chat_id: int,
                       state=BudgetSearchStates.check_out_date,
                       chat_id=chat_id
                       )
-        save_state_data(chart_id=chat_id,
-                        user_id=user_id,
-                        key='checkInDate:',
-                        value=check_in_date)
+        save_state_data_by_key(chat_id=chat_id,
+                               user_id=user_id,
+                               key='checkInDate',
+                               value=check_in_date)
     bot.send_message(chat_id, reply_text,
                      reply_markup=generate_calendar_days(year=now.year,
                                                          month=now.month))
@@ -224,7 +237,7 @@ def budget_reply_msg_check_out_date(user_id: int, chat_id: int, correct_date: bo
     now = date.today()
     reply_markup = generate_calendar_days(year=now.year,
                                           month=now.month)
-    check_in_date = take_state_data(chat_id, user_id, 'checkInDate:')
+    check_in_date = retrieve_state_data_by_key(chat_id, user_id, 'checkInDate')
     if (correct_date is True and
             not valid_check_out_date(check_in_date, check_out_date)):
         reply_text = ("Select check out date after check in date"
@@ -238,10 +251,10 @@ def budget_reply_msg_check_out_date(user_id: int, chat_id: int, correct_date: bo
                       state=BudgetSearchStates.travellers,
                       chat_id=chat_id
                       )
-        save_state_data(chart_id=chat_id,
-                        user_id=user_id,
-                        key='checkOutDate',
-                        value=check_out_date)
+        save_state_data_by_key(chat_id=chat_id,
+                               user_id=user_id,
+                               key='checkOutDate',
+                               value=check_out_date)
         reply_markup = cancel_reply_keyboard
     bot.send_message(chat_id, reply_text,
                      reply_markup=reply_markup)
@@ -254,16 +267,18 @@ def budget_travellers_state(message: Message) -> None:
     if not received_text.isdigit():
         reply_text = "Use digits to set number of travellers!\n(ex. 2)"
     elif int(received_text) > 14:
-        reply_text = "Max number of travellers is 14"
+        reply_text = "Max number of travellers is 14!\n(ex. 14)"
+    elif int(received_text) <= 0:
+        reply_text = "Min number of travellers is 1!\n(ex. 1)"
     else:
         bot.set_state(user_id=message.from_user.id,
                       state=BudgetSearchStates.hotels_amount,
                       chat_id=message.chat.id
                       )
-        save_state_data(chart_id=message.chat.id,
-                        user_id=message.from_user.id,
-                        key='adults',
-                        value=int(received_text))
+        save_state_data_by_key(chat_id=message.chat.id,
+                               user_id=message.from_user.id,
+                               key='adults',
+                               value=int(received_text))
     bot.send_message(message.chat.id, reply_text,
                      reply_markup=cancel_reply_keyboard
                      )
@@ -275,80 +290,74 @@ def budget_amount_state(message: Message) -> None:
     received_text = message.text.strip()
     if not received_text.isdigit():
         reply_text = 'Use digits to set hotels amount!\n(ex. 3)'
-    elif int(received_text) > 11:
-        reply_text = "Max number of hotels to display is 10"
+    elif int(received_text) >= 11:
+        reply_text = "Max number of hotels to display is 10!\n(ex. 10)"
+    elif int(received_text) <= 0:
+        reply_text = "Min number of hotels to display is 1!\n(ex. 1)"
     else:
         bot.set_state(user_id=message.from_user.id,
                       state=BudgetSearchStates.hotels_photo,
                       chat_id=message.chat.id
                       )
-        save_state_data(chart_id=message.chat.id,
-                        user_id=message.from_user.id,
-                        key='Hotels amount',
-                        value=received_text)
+        save_state_data_by_key(chat_id=message.chat.id,
+                               user_id=message.from_user.id,
+                               key='hotels_amount',
+                               value=int(received_text)
+                               )
     bot.send_message(message.chat.id, reply_text,
                      reply_markup=cancel_reply_keyboard
                      )
 
 
 @bot.message_handler(state=BudgetSearchStates.hotels_photo)
-def budget_photo_state(message: Message) -> Union[None, Callable]:
+def budget_photo_state(message: Message) -> None:
     reply_text = "How many photos to display (max 5)?"
+    reply_markup = cancel_reply_keyboard
     received_text = message.text.strip().lower()
     if not received_text.isalpha():
         reply_text = "Use letters only!\n(ex. yes)"
     elif received_text not in ['yes', 'no']:
         reply_text = "Type 'yes' or 'no'.\n(ex. yes)"
     else:
-        save_state_data(chart_id=message.chat.id,
-                        user_id=message.from_user.id,
-                        key='Display photos of hotel',
-                        value=received_text)
-        if received_text == 'yes':
+        save_state_data_by_key(chat_id=message.chat.id,
+                               user_id=message.from_user.id,
+                               key="display_hotel_photos",
+                               value=received_text)
+        if received_text == "yes":
             bot.set_state(user_id=message.from_user.id,
                           state=BudgetSearchStates.hotels_photo_amount,
                           chat_id=message.chat.id
                           )
         else:
-            return update_user_request_history(message.chat.id, message.from_user.id)
+            create_final_response(message.chat.id, message.from_user.id)
+            return None
     bot.send_message(message.chat.id, reply_text,
-                     reply_markup=cancel_reply_keyboard
+                     reply_markup=reply_markup
                      )
 
 
 @bot.message_handler(state=BudgetSearchStates.hotels_photo_amount)
 def budget_photo_amount_state(message: Message) \
-        -> Union[None, Callable]:
+        -> None:
+    reply_markup = cancel_reply_keyboard
     received_text = message.text.strip()
     if not received_text.isdigit():
         reply_text = "Use digits to set photos amount!\n(ex. 3)"
-        bot.send_message(message.chat.id, reply_text,
-                         reply_markup=cancel_reply_keyboard
-                         )
     elif int(received_text) > 5:
-        reply_text = "Max number of photos to display is 5"
-        bot.send_message(message.chat.id, reply_text,
-                         reply_markup=cancel_reply_keyboard
-                         )
+        reply_text = "Max number of photos to display is 5.\n(ex. 5)"
+    elif int(received_text) <= 0:
+        reply_text = "Min number of photos to display is 1.\n(ex. 1)"
     else:
-        save_state_data(chart_id=message.chat.id,
-                        user_id=message.from_user.id,
-                        key='Photos of hotel',
-                        value=received_text)
-        return update_user_request_history(message.chat.id, message.from_user.id)
+        save_state_data_by_key(chat_id=message.chat.id,
+                               user_id=message.from_user.id,
+                               key="hotel_photo_amount",
+                               value=int(received_text))
+        create_final_response(message.chat.id, message.from_user.id)
+        return None
+    bot.send_message(message.chat.id, reply_text,
+                     reply_markup=reply_markup
+                     )
 
-
-def update_user_request_history(chart_id: int, user_id: int) -> None:
-    request_info = get_info_from_state_data(chart_id, user_id)
-    CrudDb.update_last_user_entry(db, History, user_id, History.user_request,
-                                  request_info)
-    delete_state(chart_id, user_id)
-
-
-def get_info_from_state_data(chart_id: int, user_id: int) -> dict:
-    with bot.retrieve_data(user_id, chart_id) as data:
-        user_request_info = data
-    return user_request_info
 
 # @bot.message_handler(state=MyStates.age, is_digit=True)
 # def ready_for_answer(message):

@@ -18,5 +18,3 @@ def reply_msg_start(chat_id: int, user_name: str) -> None:
                      text=text,
                      reply_markup=start_inline_keyboard
                      )
-
-

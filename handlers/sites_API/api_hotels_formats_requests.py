@@ -14,7 +14,7 @@ def get_meta_data():
     response = requests.get(url, headers=headers).json()
 
     pprint(response)
-    with open('get-meta-data.json', 'w', encoding='utf-8') as file:
+    with open('hotels_response_files/get-meta-data.json', 'w', encoding='utf-8') as file:
         json.dump(response, file, indent=4)
 
 
@@ -33,7 +33,7 @@ def location_search():
 
 
     pprint(response)
-    with open('locations_v3_search.json', 'w', encoding='utf-8') as file:
+    with open('hotels_response_files/locations_v3_search.json', 'w', encoding='utf-8') as file:
         json.dump(response, file, indent=4)
 
 def location_not_exist_search():
@@ -51,7 +51,7 @@ def location_not_exist_search():
 
 
     pprint(response)
-    with open('location_not_exist_search.json', 'w', encoding='utf-8') as file:
+    with open('hotels_response_files/location_not_exist_search.json', 'w', encoding='utf-8') as file:
         json.dump(response, file, indent=4)
 
 
@@ -97,7 +97,7 @@ def propertiesv2list():
 
     response = requests.post(url, json=payload, headers=headers).json()
     pprint(response)
-    with open('properties_v2_list_NY.json', 'w', encoding='utf-8') as file:
+    with open('hotels_response_files/properties_v2_list_NY.json', 'w', encoding='utf-8') as file:
         json.dump(response, file, indent=4)
 
 
@@ -121,7 +121,7 @@ def get_content():
     response = requests.post(url, json=payload, headers=headers).json()
 
     pprint(response)
-    with open('properties_v2_get_content.json', 'w', encoding='utf-8') as file:
+    with open('hotels_response_files/properties_v2_get_content.json', 'w', encoding='utf-8') as file:
         json.dump(response, file, indent=4)
 
 
@@ -145,7 +145,7 @@ def properties_v2_detail():
 
     response = requests.post(url, json=payload, headers=headers).json()
 
-    with open('properties_v2_detail.json', 'w', encoding='utf-8') as file:
+    with open('hotels_response_files/properties_v2_detail.json', 'w', encoding='utf-8') as file:
         json.dump(response, file, indent=4)
 
 
@@ -167,7 +167,7 @@ def properties_v2_get_summery():
 
     response = requests.post(url, json=payload, headers=headers).json()
 
-    with open('properties_v2_get_summery.json', 'w', encoding='utf-8') as file:
+    with open('hotels_response_files/properties_v2_get_summery.json', 'w', encoding='utf-8') as file:
         json.dump(response, file, indent=4)
 
 
@@ -244,7 +244,7 @@ def reviews_v3_list():
     response = requests.post(url, json=payload, headers=headers).json()
 
 
-    with open('reviews_v3_list.json', 'w', encoding='utf-8') as file:
+    with open('hotels_response_files/reviews_v3_list.json', 'w', encoding='utf-8') as file:
         json.dump(response, file, indent=4)
 
 
@@ -266,7 +266,7 @@ def reviews_v3_get_summery():
     }
 
     response = requests.post(url, json=payload, headers=headers).json()
-    with open('reviews_v3_get_summery.json', 'w', encoding='utf-8') as file:
+    with open('hotels_response_files/reviews_v3_get_summery.json', 'w', encoding='utf-8') as file:
         json.dump(response, file, indent=4)
 
 
