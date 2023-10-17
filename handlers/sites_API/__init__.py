@@ -1,1 +1,1 @@
-from . import rapidapi_hotels, hotels_response_files
+from . import rapidapi_hotels

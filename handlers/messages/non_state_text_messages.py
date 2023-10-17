@@ -2,15 +2,14 @@ from telebot.types import Message
 from keyboards.inline_keyboard.start import start_inline_keyboard
 from loader import bot
 from config_data.config import BOT_COMMANDS
-from . import top_budget_hotels
+from .top_budget_hotels import reply_msg_low_price
 
-################CHANGE MODULE
+
 @bot.message_handler()
-def welcome_message(message: Message):
-    #change function
-    text = "need to type"
+def non_state_text_message(message: Message):
     if message.text == BOT_COMMANDS[3][1]:
-        top_budget_hotels.low_price_command(message=message)
+        reply_msg_low_price(message.chat.id, message.from_user.id)
+        return None
     elif message.text.lower().strip() in ('hi', 'hello', 'hello-world', 'Привет'):
         text = 'Hi, {name}!\nNow is the best time to select a hotel.'.format(
             name=message.from_user.full_name

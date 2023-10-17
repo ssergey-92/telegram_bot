@@ -15,29 +15,35 @@ def send_final_response(chat_id: int, user_id: int) -> None:  # to be modified w
     bot.send_message(chat_id, user_request_details)
     CrudDb.update_last_user_entry(db, History, user_id, History.user_request,
                                   user_request_details)
-    bot.send_message(chat_id, "searching for you suitable hotels")
+    bot.send_message(chat_id,"searching suitable hotels")
     hotel_details = HotelsApi.find_hotels_in_city(chat_id, user_id)
     if full_state_data["display_hotel_photos"] == "no":
         reply_text = create_final_text(hotel_details)
-        bot.send_message(chat_id, reply_text)
+        for i_text in reply_text:
+            bot.send_message(chat_id)
     else:
         reply_text = create_final_text_with_photo(hotel_details)
-        bot.send_media_group(chat_id, reply_text)
+        for i_text in reply_text:
+            bot.send_media_group(chat_id, i_text)
     CrudDb.update_last_user_entry(db, History, user_id, History.bot_response,
                                   reply_text)
     delete_state(chat_id, user_id)
 
 
 def sort_user_request_details(full_state_data: dict) -> str:
-    request_details = ("You search preferences:\n"
+    request_details = ("Search settings:\n\n"
                        "Criteria: {command_shortcut}\n"
                        "City: {city}\n"
-                       "Check in date: {check_in_date}\n"
-                       "Check out date: {check_out_date}").format(
+                       "Check in date: {ci_day}.{ci_month}.{ci_year}\n"
+                       "Check out date: {co_day}.{co_month}.{co_year}").format(
         command_shortcut=full_state_data["command"],
         city=full_state_data['fullName'],
-        check_in_date=full_state_data["checkInDate"],
-        check_out_date=full_state_data["checkOutDate"],
+        ci_day=full_state_data["checkInDate"]["day"],
+        ci_month=full_state_data["checkInDate"]["month"],
+        ci_year=full_state_data["checkInDate"]["year"],
+        co_day=full_state_data["checkOutDate"]["day"],
+        co_month=full_state_data["checkOutDate"]["month"],
+        co_year=full_state_data["checkOutDate"]["year"]
     )
     if full_state_data["command"] == BOT_COMMANDS[5][1]:  # best_deal(custom search)
         request_details = ("{request_details}\n"
@@ -49,14 +55,15 @@ def sort_user_request_details(full_state_data: dict) -> str:
     request_details = ("{request_details}\n"
                        "Travellers: {travellers}\n"
                        "Hotels: {hotels_amount}\n"
-                       "Require hotel photo: {display_hotel_photos}").format(
+                       "Hotel photos: {display_hotel_photos}").format(
         request_details=request_details,
         travellers=full_state_data["adults"],
         hotels_amount=full_state_data["hotels_amount"],
-        display_hotel_photos=full_state_data["display_hotel_photos"])
+        display_hotel_photos=full_state_data["display_hotel_photos"].capitalize())
     if full_state_data["display_hotel_photos"] == "yes":
         request_details = ("{request_details}\n"
                            "Photos: {hotel_photo_amount}").format(
+            request_details=request_details,
             hotel_photo_amount=full_state_data["hotel_photo_amount"]
         )
     return request_details
@@ -89,37 +96,22 @@ def create_hotel_signature(i_hotel: dict) -> str:
     return hotel_signature
 
 
-def create_final_text_with_photo(hotel_details: list[dict]) -> list[list[str]]:
+def create_final_text_with_photo(hotel_details: list[dict]) \
+        -> list[list[InputMediaPhoto]]:
     reply_text_with_photos = list()
     for i_hotel in hotel_details:
         hotel_signature = create_hotel_signature(i_hotel)
-        media_photo_list = list()
         caption_count = 0
+        temp_reply_text = list()
         for i_photo_url in i_hotel["photos_url"]:
             if caption_count == 0:
-                media_photo_format = ("InputMediaPhoto(media={i_photo_url}, "
-                                      "caption={hotel_signature}").format(
-                    i_photo_url=i_photo_url,
-                    hotel_signature=hotel_signature
-                )
+                photo_media = [InputMediaPhoto(media=i_photo_url, caption=hotel_signature)]
                 caption_count += 1
             else:
-                media_photo_format = "InputMediaPhoto(media={i_photo_url}".format(
-                    i_photo_url=i_photo_url,
-                )
-            media_photo_list.append(media_photo_format)
-        reply_text_with_photos.append(media_photo_list)
-
+                photo_media = [InputMediaPhoto(media=i_photo_url)]
+            temp_reply_text.extend(photo_media)
+        reply_text_with_photos.append(temp_reply_text)
     return reply_text_with_photos
 
-# def send_final_response_with_photo(chat_id: int, hotel_details: list[dict]) -> None:
-#     bot.send_media_group(chat_id, [InputMediaPhoto(
-#         media="https://images.trvl-media.com/lodging/1000000/20000/15900/15838/c0137fe4.jpg?impolicy=resizecrop&rw=500&ra=fit",
-#         caption='Hotel info'),
-#         InputMediaPhoto(
-#             media="https://images.trvl-media.com/lodging/1000000/20000/15900/15838/20c5e07f.jpg?impolicy=resizecrop&rw=500&ra=fit"
-#         ),
-#         InputMediaPhoto(
-#             media="https://images.trvl-media.com/lodging/1000000/20000/15900/15838/a11eb569.jpg?impolicy=resizecrop&rw=500&ra=fit"
-#         )
-#     ])
+
+

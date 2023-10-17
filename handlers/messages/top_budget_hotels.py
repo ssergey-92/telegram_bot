@@ -48,29 +48,30 @@ def reply_msg_low_price(chat_id: int, user_id: int) -> None:
 
 @bot.message_handler(state=BudgetSearchStates.input_city)
 def budget_input_city_state(message: Message) -> None:
-    received_text = message.text.strip().lower()
+    received_text = message.text.strip(',. ').replace(',', '').lower()
     reply_markup = cancel_reply_keyboard
     reply_text = "You mean:"
-    if not received_text.isalpha():
-        reply_text = 'Enter a city name using letters only!\n(ex. Miami)'
-    elif not eng_language_check(received_text):
-        reply_text = 'Enter a city name using ENGLISH letters only!\n(ex. Miami)'
-    else:
-        bot.set_state(user_id=message.from_user.id,
-                      state=BudgetSearchStates.confirm_city,
-                      chat_id=message.chat.id
-                      )
-        save_state_data_by_key(chat_id=message.chat.id,
-                               user_id=message.from_user.id,
-                               key='Input city',
-                               value=message.text)
-        sorted_data = HotelsApi.check_city(message.from_user.id,
-                                           received_text, BOT_COMMANDS[3][0])
-        save_state_data_by_key(chat_id=message.chat.id,
-                               user_id=message.from_user.id,
-                               key='searched_city_result',
-                               value=sorted_data)
-        reply_markup = create_search_city_inline_keyboard(sorted_data)
+    for i_word in received_text.split(' '):
+        if not i_word.isalpha():
+            reply_text = 'Enter a city name using letters only!\n(ex. Miami)'
+        elif not eng_language_check(i_word):
+            reply_text = 'Enter a city name using ENGLISH letters only!\n(ex. Miami)'
+        else:
+            bot.set_state(user_id=message.from_user.id,
+                          state=BudgetSearchStates.confirm_city,
+                          chat_id=message.chat.id
+                          )
+            save_state_data_by_key(chat_id=message.chat.id,
+                                   user_id=message.from_user.id,
+                                   key='Input city',
+                                   value=message.text)
+            sorted_data = HotelsApi.check_city(message.from_user.id,
+                                               received_text, BOT_COMMANDS[3][0])
+            save_state_data_by_key(chat_id=message.chat.id,
+                                   user_id=message.from_user.id,
+                                   key='searched_city_result',
+                                   value=sorted_data)
+            reply_markup = create_search_city_inline_keyboard(sorted_data)
     bot.send_message(message.chat.id, reply_text, reply_markup=reply_markup)
 
 
@@ -329,6 +330,10 @@ def budget_photo_state(message: Message) -> None:
                           chat_id=message.chat.id
                           )
         else:
+            save_state_data_by_key(chat_id=message.chat.id,
+                                   user_id=message.from_user.id,
+                                   key="hotel_photo_amount",
+                                   value=0)
             send_final_response(message.chat.id, message.from_user.id)
             return None
     bot.send_message(message.chat.id, reply_text,

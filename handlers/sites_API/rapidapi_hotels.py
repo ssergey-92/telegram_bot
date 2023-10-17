@@ -37,26 +37,12 @@ class HotelsApi(ABC):
     @staticmethod
     def find_hotels_in_city(chat_id: int, user_id: int) -> list[dict]:
         user_data = retrieve_full_state_data_by_id(chat_id, user_id)
-
-        # command = user_data["command"]
-        # sort = user_data["sort"]
-        # city_name = user_data["fullName"]
-        # place_id = user_data["regionId"]
-        # check_in_date = user_data["checkInDate"]
-        # check_out_date = user_data["checkOutDate"]
-        # min_price = user_data["min_price"]
-        # max_price = user_data["max_price"]
-        # travellers = user_data["adults"]
-        # hotels_amount = user_data["hotels_amount"]
-        # display_hotel_photos = user_data["display_hotel_photos"]
-        # hotel_photo_amount = user_data["hotel_photo_amount"]
-
         response_part1 = HotelsApi._search_hotels_request(user_id,
                                                           user_data)
         file_name_part1 = HotelsApi._create_json_file(user_id,
                                                       user_data["command"],
                                                       user_data["fullName"],
-                                                      HotelsApi.find_hotels_in_city.__name__,
+                                                      "hotels_in_city",
                                                       response_part1)
         hotels_data_part1 = HotelsApi._sort_hotels_in_city(file_name_part1,
                                                            user_data["hotels_amount"])
@@ -66,14 +52,13 @@ class HotelsApi(ABC):
             file_names_part2 = HotelsApi._create_json_file(user_id,
                                                            user_data["command"],
                                                            i_hotel['property_id'],
-                                                           HotelsApi.find_hotels_in_city.__name__,
+                                                           "hotel_details",
                                                            response_part2)
             hotel_data_part2 = HotelsApi._sort_hotel_details(file_names_part2,
                                                              user_data["display_hotel_photos"],
                                                              user_data["hotel_photo_amount"])
             merged_hotel_data.append(hotels_data_part1[index] | hotel_data_part2)
 
-        print(merged_hotel_data)
         return merged_hotel_data
 
 
@@ -192,15 +177,20 @@ class HotelsApi(ABC):
             hotel_details = json.load(data)
         hotel_info = hotel_details["data"]["propertyInfo"]
         photos_urls = list()
+        hotel_rating = 'not rated'
+        site_url = 'not exist'
         if display_hotel_photo.lower() == 'yes':
             for index in range(hotel_photo_amount):
                 photos_urls.append(hotel_info["propertyGallery"]["images"][index][
                                        "image"]["url"])
-        data_part2 = {"site_url": hotel_info["summary"]["name"],
+        if hotel_info["summary"]["overview"]["propertyRating"]:
+            hotel_rating = hotel_info["summary"]["overview"]["propertyRating"]["rating"]
+        if site_url.startswith('https'):
+            site_url = hotel_info["summary"]["name"]
+        data_part2 = {"site_url": site_url,
                       "hotel_address": hotel_info["summary"]["location"][
                           "address"]["addressLine"],
-                      "hotel_rating": hotel_info["summary"]["overview"][
-                          "propertyRating"]["rating"],
+                      "hotel_rating": hotel_rating,
                       "photos_url": photos_urls}
 
         return data_part2
