@@ -22,7 +22,7 @@ from .utils.date_handling import (extract_date, valid_check_in_date,
                                   check_date_format, valid_check_out_date,
                                   convert_str_date_to_dict)
 from .utils.user_input_data_check import eng_language_check
-from .utils.response_for_user import create_response
+from .utils.response_for_user import send_final_response
 from handlers.sites_API.rapidapi_hotels import HotelsApi
 
 
@@ -196,7 +196,7 @@ def budget_reply_msg_check_in_date(user_id: int, chat_id: int,
                       )
         save_state_data_by_key(chat_id=chat_id,
                                user_id=user_id,
-                               key='checkInDate',
+                               key="checkInDate",
                                value=check_in_date)
     bot.send_message(chat_id, reply_text,
                      reply_markup=generate_calendar_days(year=now.year,
@@ -253,7 +253,7 @@ def budget_reply_msg_check_out_date(user_id: int, chat_id: int, correct_date: bo
                       )
         save_state_data_by_key(chat_id=chat_id,
                                user_id=user_id,
-                               key='checkOutDate',
+                               key="checkOutDate",
                                value=check_out_date)
         reply_markup = cancel_reply_keyboard
     bot.send_message(chat_id, reply_text,
@@ -277,7 +277,7 @@ def budget_travellers_state(message: Message) -> None:
                       )
         save_state_data_by_key(chat_id=message.chat.id,
                                user_id=message.from_user.id,
-                               key='adults',
+                               key="adults",
                                value=int(received_text))
     bot.send_message(message.chat.id, reply_text,
                      reply_markup=cancel_reply_keyboard
@@ -285,7 +285,7 @@ def budget_travellers_state(message: Message) -> None:
 
 
 @bot.message_handler(state=BudgetSearchStates.hotels_amount)
-def budget_amount_state(message: Message) -> None:
+def budget_hotel_amount_state(message: Message) -> None:
     reply_text = "Do you need photo of hotels?\nType 'yes' or 'no'."
     received_text = message.text.strip()
     if not received_text.isdigit():
@@ -301,7 +301,7 @@ def budget_amount_state(message: Message) -> None:
                       )
         save_state_data_by_key(chat_id=message.chat.id,
                                user_id=message.from_user.id,
-                               key='hotels_amount',
+                               key="hotels_amount",
                                value=int(received_text)
                                )
     bot.send_message(message.chat.id, reply_text,
@@ -329,7 +329,7 @@ def budget_photo_state(message: Message) -> None:
                           chat_id=message.chat.id
                           )
         else:
-            create_final_response(message.chat.id, message.from_user.id)
+            send_final_response(message.chat.id, message.from_user.id)
             return None
     bot.send_message(message.chat.id, reply_text,
                      reply_markup=reply_markup
@@ -352,22 +352,8 @@ def budget_photo_amount_state(message: Message) \
                                user_id=message.from_user.id,
                                key="hotel_photo_amount",
                                value=int(received_text))
-        create_final_response(message.chat.id, message.from_user.id)
+        send_final_response(message.chat.id, message.from_user.id)
         return None
     bot.send_message(message.chat.id, reply_text,
                      reply_markup=reply_markup
                      )
-
-
-# @bot.message_handler(state=MyStates.age, is_digit=True)
-# def ready_for_answer(message):
-#     """
-#     State 3. Will process when user's state is MyStates.age.
-#     """
-#     with bot.retrieve_data(message.from_user.id, message.chat.id) as data:
-#         msg = ("Ready, take a look:\n<b>"
-#                f"Name: {data['name']}\n"
-#                f"Surname: {data['surname']}\n"
-#                f"Age: {message.text}</b>")
-#         bot.send_message(message.chat.id, msg, parse_mode="html")
-#     bot.delete_state(message.from_user.id, message.chat.id)
