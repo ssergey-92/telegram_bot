@@ -1,10 +1,10 @@
 from telebot.types import CallbackQuery
 
 from loader import bot
-from .start import reply_msg_start
-from .cancel_search import reply_msg_cancel_search
-from .help import reply_msg_help
-from .top_budget_hotels import reply_msg_low_price
+from .start_cmd import reply_msg_start
+from .cancel_search_cmd import reply_msg_cancel_search
+from .help_cmd import reply_msg_help
+from .top_budget_hotels_state import reply_msg_low_price
 from config_data.config import BOT_COMMANDS
 
 

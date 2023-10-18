@@ -6,7 +6,7 @@ import backoff
 from loguru import logger
 
 from config_data.config import RAPID_API_KEY
-from handlers.messages.utils.state_data import retrieve_full_state_data_by_id
+from handlers.messages.utils.state_data import StateData
 
 base_url = url = "https://hotels4.p.rapidapi.com/"
 
@@ -34,7 +34,7 @@ class HotelsApi(ABC):
 
     @staticmethod
     def find_hotels_in_city(chat_id: int, user_id: int) -> list[dict]:
-        user_data = retrieve_full_state_data_by_id(chat_id, user_id)
+        user_data = StateData.retrieve_full_data_by_id(chat_id, user_id)
         response_part1 = HotelsApi._search_hotels_request(user_data)
         file_name_part1 = HotelsApi._create_json_file(user_id,
                                                       user_data["command"],

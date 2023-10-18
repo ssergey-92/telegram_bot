@@ -2,7 +2,7 @@ from telebot.types import Message
 from keyboards.inline_keyboard.start import start_inline_keyboard
 from loader import bot
 from config_data.config import BOT_COMMANDS
-from .top_budget_hotels import reply_msg_low_price
+from .top_budget_hotels_state import reply_msg_low_price
 
 
 @bot.message_handler()
@@ -15,9 +15,9 @@ def non_state_text_message(message: Message):
             name=message.from_user.full_name
         )
     else:
-        text = (" '{rcvd_text}' is not recognised.\nSelect one of below "
+        text = (" '{received_text}' is not recognised.\nSelect one of below "
                 "options").format(
-            rcvd_text=message.text
+            received_text=message.text
         )
     bot.send_message(
         chat_id=message.chat.id,

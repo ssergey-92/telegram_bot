@@ -11,6 +11,6 @@ def create_search_city_inline_keyboard(sorted_data: list[dict]) \
         )
     city_inline_keyboard.add(InlineKeyboardButton(
         text="Type another city:",
-        callback_data="Type another city:")
+        callback_data="Type another city")
     )
     return city_inline_keyboard

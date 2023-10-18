@@ -1,8 +1,7 @@
 from handlers.sites_API.rapidapi_hotels import HotelsApi
 from database.CRUD_interface import CrudDb
 from database.history_model import History, db
-from .state_data import delete_state
-from .state_data import retrieve_full_state_data_by_id
+from .state_data import StateData
 
 from loader import bot
 from telebot.types import InputMediaPhoto
@@ -10,7 +9,7 @@ from config_data.config import BOT_COMMANDS
 
 
 def send_final_response(chat_id: int, user_id: int) -> None:  # to be modified when history handler is done
-    full_state_data = retrieve_full_state_data_by_id(chat_id, user_id)
+    full_state_data = StateData.retrieve_full_data_by_id(chat_id, user_id)
     user_request_details = sort_user_request_details(full_state_data)
     bot.send_message(chat_id, user_request_details)
     CrudDb.update_last_user_entry(db, History, user_id, History.user_request,
@@ -32,7 +31,7 @@ def send_final_response(chat_id: int, user_id: int) -> None:  # to be modified w
         bot.send_message(chat_id, reply_text)
     CrudDb.update_last_user_entry(db, History, user_id, History.bot_response,
                                   reply_text)
-    delete_state(chat_id, user_id)
+    StateData.delete_state(chat_id, user_id)
 
 
 def sort_user_request_details(full_state_data: dict) -> str:
