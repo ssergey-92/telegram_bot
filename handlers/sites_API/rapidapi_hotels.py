@@ -8,7 +8,6 @@ from loguru import logger
 from config_data.config import RAPID_API_KEY
 from handlers.messages.utils.state_data import retrieve_full_state_data_by_id
 
-
 base_url = url = "https://hotels4.p.rapidapi.com/"
 
 headers_get = {
@@ -151,6 +150,7 @@ class HotelsApi(ABC):
         sorted_data = list()
         if hotels_data["data"]:
             properties_data = hotels_data["data"]["propertySearch"]["properties"]
+            hotels_amount = min(hotels_amount, len(properties_data))
             for index in range(hotels_amount):
                 distance_key = properties_data[index]["destinationInfo"][
                     "distanceFromDestination"]
@@ -184,6 +184,8 @@ class HotelsApi(ABC):
         hotel_rating = 'not rated'
         site_url = 'not exist'
         if display_hotel_photo.lower() == 'yes':
+            hotel_photo_amount = min(hotel_photo_amount,
+                                     len(hotel_info["propertyGallery"]["images"]))
             for index in range(hotel_photo_amount):
                 photos_urls.append(hotel_info["propertyGallery"]["images"][index][
                                        "image"]["url"])
