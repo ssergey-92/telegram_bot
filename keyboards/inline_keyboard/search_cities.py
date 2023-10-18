@@ -1,7 +1,5 @@
 from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from config_data.config import BOT_COMMANDS
-
 
 def create_search_city_inline_keyboard(sorted_data: list[dict]) \
         -> InlineKeyboardMarkup:
@@ -16,6 +14,3 @@ def create_search_city_inline_keyboard(sorted_data: list[dict]) \
         callback_data="Type another city:")
     )
     return city_inline_keyboard
-
-
-

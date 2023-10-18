@@ -1,14 +1,13 @@
-import json
-import jmespath
-from requests import get, post
-import os
+from abc import ABC
+from requests import get, post, exceptions
+from json import dump, load
+
 import backoff
-from json import dump
+from loguru import logger
 
 from config_data.config import RAPID_API_KEY
 from handlers.messages.utils.state_data import retrieve_full_state_data_by_id
-from pprint import pprint
-from abc import ABC
+
 
 base_url = url = "https://hotels4.p.rapidapi.com/"
 
@@ -19,7 +18,7 @@ headers_get = {
 
 headers_post = {
     "content-type": "application/json",
-    "X-RapidAPI-Key": "c50a57d185mshe0abc47f073683bp10153cjsn37c62de4ae65",
+    "X-RapidAPI-Key": RAPID_API_KEY,
     "X-RapidAPI-Host": "hotels4.p.rapidapi.com"
 }
 
@@ -37,8 +36,7 @@ class HotelsApi(ABC):
     @staticmethod
     def find_hotels_in_city(chat_id: int, user_id: int) -> list[dict]:
         user_data = retrieve_full_state_data_by_id(chat_id, user_id)
-        response_part1 = HotelsApi._search_hotels_request(user_id,
-                                                          user_data)
+        response_part1 = HotelsApi._search_hotels_request(user_data)
         file_name_part1 = HotelsApi._create_json_file(user_id,
                                                       user_data["command"],
                                                       user_data["fullName"],
@@ -47,22 +45,26 @@ class HotelsApi(ABC):
         hotels_data_part1 = HotelsApi._sort_hotels_in_city(file_name_part1,
                                                            user_data["hotels_amount"])
         merged_hotel_data = list()
-        for index, i_hotel in enumerate(hotels_data_part1):
-            response_part2 = HotelsApi._get_hotel_details_request(i_hotel['property_id'])
-            file_names_part2 = HotelsApi._create_json_file(user_id,
-                                                           user_data["command"],
-                                                           i_hotel['property_id'],
-                                                           "hotel_details",
-                                                           response_part2)
-            hotel_data_part2 = HotelsApi._sort_hotel_details(file_names_part2,
-                                                             user_data["display_hotel_photos"],
-                                                             user_data["hotel_photo_amount"])
-            merged_hotel_data.append(hotels_data_part1[index] | hotel_data_part2)
+        if hotels_data_part1:
+            for index, i_hotel in enumerate(hotels_data_part1):
+                response_part2 = HotelsApi._get_hotel_details_request(i_hotel['property_id'])
+                file_names_part2 = HotelsApi._create_json_file(user_id,
+                                                               user_data["command"],
+                                                               i_hotel['property_id'],
+                                                               "hotel_details",
+                                                               response_part2)
+                hotel_data_part2 = HotelsApi._sort_hotel_details(file_names_part2,
+                                                                 user_data["display_hotel_photos"],
+                                                                 user_data["hotel_photo_amount"])
+                merged_hotel_data.append(hotels_data_part1[index] | hotel_data_part2)
 
         return merged_hotel_data
 
-
     @staticmethod
+    @backoff.on_exception(backoff.expo,
+                          exception=(exceptions.Timeout, exceptions.ConnectionError),
+                          max_time=60,
+                          max_tries=2)
     def _search_city_request(input_city: str) -> dict:
         location_endpoint = "locations/v3/search"
         search_url = "{}{}".format(base_url, location_endpoint)
@@ -73,7 +75,7 @@ class HotelsApi(ABC):
         return response
 
     @staticmethod
-    def _search_hotels_request(user_id: int, user_data: dict) -> dict:
+    def _search_hotels_request(user_data: dict) -> dict:
         location_endpoint = "properties/v2/list"
         hotels_url = "{}{}".format(base_url, location_endpoint)
         payload = {
@@ -129,44 +131,46 @@ class HotelsApi(ABC):
         return file_name
 
     @staticmethod
-    def _sort_searched_cities(file_name: json) -> list[dict]:
+    def _sort_searched_cities(file_name: str) -> list[dict]:
         with open(file_name, 'r', encoding='utf-8') as data:
-            locations_data = json.load(data)
-        city_type = ["CITY", "NEIGHBORHOOD"]
+            locations_data = load(data)
         sorted_data = list()
-        for i_data in enumerate(locations_data["sr"]):
-            if i_data[1]["type"] in city_type:
-                sorted_data.append({"regionId": i_data[1]["gaiaId"],
-                                    "fullName": i_data[1]["regionNames"]["fullName"]})
+        if locations_data["sr"]:
+            city_type = ["CITY", "NEIGHBORHOOD"]
+            for i_data in enumerate(locations_data["sr"]):
+                if i_data[1]["type"] in city_type:
+                    sorted_data.append({"regionId": i_data[1]["gaiaId"],
+                                        "fullName": i_data[1]["regionNames"]["fullName"]})
 
         return sorted_data
 
     @staticmethod
     def _sort_hotels_in_city(file_name: str, hotels_amount: int) -> list[dict]:
         with open(file_name, 'r', encoding='utf-8') as data:
-            hotels_data = json.load(data)
+            hotels_data = load(data)
         sorted_data = list()
-        properties_data = hotels_data["data"]["propertySearch"]["properties"]
-        for index in range(hotels_amount):
-            distance_key = properties_data[index]["destinationInfo"][
-                "distanceFromDestination"]
-            distance_info = "{} {}".format(
-                distance_key["value"],
-                distance_key["unit"]
-            )
-            price_per_day = "{} {}".format(
-                round(properties_data[index]["price"]["lead"]["amount"], 2),
-                properties_data[index]["price"]["lead"]["currencyInfo"]["code"]
-            )
-            price_per_stay = properties_data[index]["price"]["displayMessages"][
-                1]["lineItems"][0]["value"]
-            price_per_stay = price_per_stay.replace('total', 'including all taxes')
-            sorted_data.append({"name": properties_data[index]["name"],
-                                "property_id": properties_data[index]["id"],
-                                "distance": distance_info,
-                                "price_per_day": price_per_day,
-                                "price_per_stay": price_per_stay}
-                               )
+        if hotels_data["data"]:
+            properties_data = hotels_data["data"]["propertySearch"]["properties"]
+            for index in range(hotels_amount):
+                distance_key = properties_data[index]["destinationInfo"][
+                    "distanceFromDestination"]
+                distance_info = "{} {}".format(
+                    distance_key["value"],
+                    distance_key["unit"]
+                )
+                price_per_day = "{} {}".format(
+                    round(properties_data[index]["price"]["lead"]["amount"], 2),
+                    properties_data[index]["price"]["lead"]["currencyInfo"]["code"]
+                )
+                price_per_stay = properties_data[index]["price"]["displayMessages"][
+                    1]["lineItems"][0]["value"]
+                price_per_stay = price_per_stay.replace('total', 'including all taxes')
+                sorted_data.append({"name": properties_data[index]["name"],
+                                    "property_id": properties_data[index]["id"],
+                                    "distance": distance_info,
+                                    "price_per_day": price_per_day,
+                                    "price_per_stay": price_per_stay}
+                                   )
 
         return sorted_data
 
@@ -174,7 +178,7 @@ class HotelsApi(ABC):
     def _sort_hotel_details(file_name_part2: str, display_hotel_photo: str,
                             hotel_photo_amount: int) -> dict:
         with open(file_name_part2, 'r', encoding='utf-8') as data:
-            hotel_details = json.load(data)
+            hotel_details = load(data)
         hotel_info = hotel_details["data"]["propertyInfo"]
         photos_urls = list()
         hotel_rating = 'not rated'

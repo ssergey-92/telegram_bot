@@ -15,16 +15,21 @@ def send_final_response(chat_id: int, user_id: int) -> None:  # to be modified w
     bot.send_message(chat_id, user_request_details)
     CrudDb.update_last_user_entry(db, History, user_id, History.user_request,
                                   user_request_details)
-    bot.send_message(chat_id,"searching suitable hotels")
+    bot.send_message(chat_id, "searching suitable hotels")
     hotel_details = HotelsApi.find_hotels_in_city(chat_id, user_id)
-    if full_state_data["display_hotel_photos"] == "no":
-        reply_text = create_final_text(hotel_details)
-        for i_text in reply_text:
-            bot.send_message(chat_id)
+    if hotel_details:
+        if full_state_data["display_hotel_photos"] == "no":
+            reply_text = create_final_text(hotel_details)
+            for i_text in reply_text:
+                bot.send_message(chat_id, i_text)
+        else:
+            reply_text = create_final_text_with_photo(hotel_details)
+            for i_text in reply_text:
+                bot.send_media_group(chat_id, i_text)
     else:
-        reply_text = create_final_text_with_photo(hotel_details)
-        for i_text in reply_text:
-            bot.send_media_group(chat_id, i_text)
+        reply_text = ("There is no available hotels as per your search settings.\n"
+                      "Try again with another search configuration.")
+        bot.send_message(chat_id, reply_text)
     CrudDb.update_last_user_entry(db, History, user_id, History.bot_response,
                                   reply_text)
     delete_state(chat_id, user_id)

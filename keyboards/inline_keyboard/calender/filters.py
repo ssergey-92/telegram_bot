@@ -1,5 +1,3 @@
-
-
 from telebot import types, AdvancedCustomFilter, TeleBot
 from telebot.callback_data import CallbackData, CallbackDataFilter
 
@@ -21,6 +19,6 @@ class CalendarZoomCallbackFilter(AdvancedCustomFilter):
         return config.check(query=call)
 
 
-def bind_filters(bot: TeleBot):
+def add_calendar_filters(bot: TeleBot) -> None:
     bot.add_custom_filter(CalendarCallbackFilter())
     bot.add_custom_filter(CalendarZoomCallbackFilter())

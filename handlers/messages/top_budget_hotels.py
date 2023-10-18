@@ -1,7 +1,6 @@
 from typing import Union, Callable
 from datetime import date
-from telebot.types import (Message, CallbackQuery, InlineKeyboardMarkup,
-                           InputMediaPhoto)
+from telebot.types import (Message, CallbackQuery, InlineKeyboardMarkup)
 
 from keyboards.inline_keyboard.calender.keyboards import (
     generate_calendar_days, generate_calendar_months)
@@ -53,25 +52,32 @@ def budget_input_city_state(message: Message) -> None:
     reply_text = "You mean:"
     for i_word in received_text.split(' '):
         if not i_word.isalpha():
-            reply_text = 'Enter a city name using letters only!\n(ex. Miami)'
+            reply_text = "Enter a city name using letters only!\n(ex. Miami)"
         elif not eng_language_check(i_word):
-            reply_text = 'Enter a city name using ENGLISH letters only!\n(ex. Miami)'
+            reply_text = "Enter a city name using ENGLISH letters only!\n(ex. Miami)"
         else:
-            bot.set_state(user_id=message.from_user.id,
-                          state=BudgetSearchStates.confirm_city,
-                          chat_id=message.chat.id
-                          )
-            save_state_data_by_key(chat_id=message.chat.id,
-                                   user_id=message.from_user.id,
-                                   key='Input city',
-                                   value=message.text)
-            sorted_data = HotelsApi.check_city(message.from_user.id,
+            cities_data = HotelsApi.check_city(message.from_user.id,
                                                received_text, BOT_COMMANDS[3][0])
-            save_state_data_by_key(chat_id=message.chat.id,
-                                   user_id=message.from_user.id,
-                                   key='searched_city_result',
-                                   value=sorted_data)
-            reply_markup = create_search_city_inline_keyboard(sorted_data)
+            if cities_data:
+                bot.set_state(user_id=message.from_user.id,
+                              state=BudgetSearchStates.confirm_city,
+                              chat_id=message.chat.id
+                              )
+                save_state_data_by_key(chat_id=message.chat.id,
+                                       user_id=message.from_user.id,
+                                       key="Input city",
+                                       value=message.text)
+                save_state_data_by_key(chat_id=message.chat.id,
+                                       user_id=message.from_user.id,
+                                       key="searched_city_result",
+                                       value=cities_data)
+                reply_markup = create_search_city_inline_keyboard(cities_data)
+            else:
+                reply_text = ("Sorry, there is no city '{input_city}' in our database.\n"
+                              "Try to enter proper city name or use another place.".format(
+                    input_city=message.text
+                )
+                )
     bot.send_message(message.chat.id, reply_text, reply_markup=reply_markup)
 
 
@@ -110,7 +116,7 @@ def budget_confirm_city_state_msg(message: Message) -> None:
 def budget_reply_msg_confirm_city(user_id: int, chat_id: int, reply_text: str,
                                   reply_markup: InlineKeyboardMarkup = None,
                                   is_confirmed: bool = False, confirmed_city: dict = None) \
-                                  -> None:
+        -> None:
     if is_confirmed:
         bot.set_state(user_id=user_id,
                       state=BudgetSearchStates.check_in_date,
@@ -267,8 +273,8 @@ def budget_travellers_state(message: Message) -> None:
     received_text = message.text.strip()
     if not received_text.isdigit():
         reply_text = "Use digits to set number of travellers!\n(ex. 2)"
-    elif int(received_text) > 14:
-        reply_text = "Max number of travellers is 14!\n(ex. 14)"
+    elif int(received_text) >= 15:
+        reply_text = "Max number of travellers is 14!\n(ex. 5)"
     elif int(received_text) <= 0:
         reply_text = "Min number of travellers is 1!\n(ex. 1)"
     else:

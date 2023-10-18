@@ -4,6 +4,7 @@ from loader import bot
 from config_data.config import BOT_COMMANDS
 from .utils.state_data import delete_state
 
+
 @bot.message_handler(state="*", commands=[BOT_COMMANDS[1][0]])  # /cancel_search
 def cancel_command_state(message: Message) -> None:
     reply_msg_cancel_search(message.chat.id, message.from_user.id)
