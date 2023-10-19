@@ -74,6 +74,10 @@ class HotelsApi(ABC):
         return response
 
     @staticmethod
+    @backoff.on_exception(backoff.expo,
+                          exception=(exceptions.Timeout, exceptions.ConnectionError),
+                          max_time=60,
+                          max_tries=2)
     def _search_hotels_request(user_data: dict) -> dict:
         location_endpoint = "properties/v2/list"
         hotels_url = "{}{}".format(base_url, location_endpoint)
@@ -104,6 +108,10 @@ class HotelsApi(ABC):
         return response
 
     @staticmethod
+    @backoff.on_exception(backoff.expo,
+                          exception=(exceptions.Timeout, exceptions.ConnectionError),
+                          max_time=60,
+                          max_tries=2)
     def _get_hotel_details_request(property_id: str) -> dict:
         hotel_detail_endpoint = "properties/v2/detail"
         hotel_details_url = "{}{}".format(base_url, hotel_detail_endpoint)
@@ -135,7 +143,7 @@ class HotelsApi(ABC):
             locations_data = load(data)
         sorted_data = list()
         if locations_data["sr"]:
-            city_type = ["CITY", "NEIGHBORHOOD"]
+            city_type = ["CITY", "NEIGHBORHOOD", "MULTIREGION"]
             for i_data in enumerate(locations_data["sr"]):
                 if i_data[1]["type"] in city_type:
                     sorted_data.append({"regionId": i_data[1]["gaiaId"],
