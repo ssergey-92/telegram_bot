@@ -11,5 +11,3 @@ class BudgetSearchStates(StatesGroup):
     hotels_photo = State()
     hotels_photo_amount = State()
 
-
-
