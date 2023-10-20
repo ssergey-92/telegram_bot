@@ -3,7 +3,8 @@ from datetime import datetime, date
 from abc import ABC
 from typing import Optional, Union
 
-from telebot.types import CallbackQuery, Message, InputMediaPhoto
+from telebot.types import (CallbackQuery, Message, InputMediaPhoto,
+                           InlineKeyboardMarkup)
 from telebot.handler_backends import StatesGroup
 from loader import bot
 from database.history_model import History, db
@@ -50,18 +51,19 @@ class HandleMsg(ABC):
                 StateData.save_multiple_data(chat_id, user_id, city_info)
                 reply_markup = create_search_city_inline_keyboard(cities_data)
             else:
-                reply_text = ("Sorry, there is no city '{input_city}' in our database.\n"
-                              "Try to enter proper city name or use another place.".format(
+                reply_text = ("Sorry, there is no city '{input_city}' in our database."
+                              "\nTry to enter proper city name or use another "
+                              "place").format(
                     input_city=input_city_text)
-                )
         else:
             reply_text = "Enter a city name using ENGLISH letters only!\n(ex. Miami)"
         bot.send_message(chat_id, reply_text, reply_markup=reply_markup)
 
     @staticmethod
     def confirm_city(chat_id: int, user_id: int, new_state: StatesGroup,
-                     previous_state: StatesGroup, reply_text: str,
-                     city_id: Optional[str] = None) -> None:
+                     previous_state: StatesGroup, reply_text: str = None,
+                     city_id: Optional[str] = None,
+                     reply_markup: Optional[InlineKeyboardMarkup] = None) -> None:
         cities_data = StateData.retrieve_data_by_key(chat_id, user_id,
                                                      "searched_city_result")
         if city_id == "Type another city":
@@ -72,33 +74,91 @@ class HandleMsg(ABC):
             confirmed_city = cities_data[int(city_id)]
             bot.set_state(user_id, new_state, chat_id)
             StateData.save_multiple_data(chat_id, user_id, confirmed_city)
-            now = date.today()
-            reply_markup = generate_calendar_days(year=now.year,
-                                                  month=now.month)
         else:
             reply_text = "Kindly select one of the below options!"
             reply_markup = create_search_city_inline_keyboard(cities_data)
         bot.send_message(chat_id, reply_text, reply_markup=reply_markup)
 
     @staticmethod
-    def set_min_price(chat_id: int, user_id: int, min_price: str, reply_text: str,
+    def set_min_price(chat_id: int, user_id: int, min_price: str,
                       new_state: StatesGroup) -> None:
-        pass
+        min_price = min_price.strip('., ')
+        if not min_price.isdigit():
+            reply_text = "Use digits only to set min price!\n(ex. 50)"
+        elif int(min_price) == 0:
+            reply_text = "Minimum price per day is 1 USD!\n(ex. 1)"
+        else:
+            bot.set_state(user_id, new_state, chat_id)
+            StateData.save_state_data_by_key(chat_id, user_id,
+                                             "min_price", int(min_price))
+            reply_text = "Type maximum hotel price in USD per day:\n"
+        bot.send_message(chat_id, reply_text,
+                         reply_markup=cancel_reply_keyboard)
 
     @staticmethod
-    def set_max_price(chat_id: int, user_id: int, max_price: str, reply_text: str,
+    def set_max_price(chat_id: int, user_id: int, max_price: str,
                       new_state: StatesGroup) -> None:
-        pass
+        max_price = max_price.strip('., ')
+        min_price = StateData.retrieve_data_by_key(chat_id, user_id, "min_price")
+        if not max_price.isdigit():
+            reply_text = "Use digits only to set min price!!\n(ex. 1000)"
+        elif int(max_price) <= min_price:
+            reply_text = ("Max price must be higher then min price: {min_price} "
+                          "USD.".format(min_price=min_price))
+        elif int(max_price) >= 1000000:
+            reply_text = "Max hotel price per day is 1 000 000 USD!"
+        else:
+            bot.set_state(user_id, new_state, chat_id)
+            StateData.save_state_data_by_key(chat_id, user_id,
+                                             "max_price", int(max_price))
+            reply_text = ("Type minimum hotel distance in miles from city center.\n"
+                          "*1 mile is 1.6 km")
+        bot.send_message(chat_id, reply_text,
+                         reply_markup=cancel_reply_keyboard)
 
     @staticmethod
-    def set_min_distance(chat_id: int, user_id: int, min_price: str, reply_text: str,
+    def set_min_distance(chat_id: int, user_id: int, min_distance: str,
                          new_state: StatesGroup) -> None:
-        pass
+        min_distance = min_distance.strip('., ')
+        if not min_distance.isdigit():
+            reply_text = ("Use digits only to set min distance from cite center!"
+                          "\n(ex. 0)")
+        elif int(min_distance) > 200:
+            reply_text = "MAX min distance from cite center is 200!\n(ex. 200)"
+        else:
+            bot.set_state(user_id, new_state, chat_id)
+            StateData.save_state_data_by_key(chat_id, user_id,
+                                             "min_distance", int(min_distance))
+            reply_text = "Type maximum hotel distance in miles from city center."
+        bot.send_message(chat_id, reply_text,
+                         reply_markup=cancel_reply_keyboard)
+
 
     @staticmethod
-    def set_max_distance(chat_id: int, user_id: int, min_price: str, reply_text: str,
+    def set_max_distance(chat_id: int, user_id: int, max_distance: str,
                          new_state: StatesGroup) -> None:
-        pass
+        max_distance = max_distance.strip('., ')
+        min_distance = StateData.retrieve_data_by_key(chat_id, user_id,
+                                                      "min_distance")
+        reply_markup = cancel_reply_keyboard
+        if not max_distance.isdigit():
+            reply_text = ("Use digits only to set max distance from cite center!"
+                          "\n(ex. 20)")
+        elif int(max_distance) >= 300:
+            reply_text = "MAX max distance from cite center is 300!\n(ex. 300)"
+        elif int(max_distance) <= min_distance:
+            reply_text = ("Max distance must be longer then min distance: "
+                          "{min_distance}!".format(min_distance=min_distance))
+        else:
+            bot.set_state(user_id, new_state, chat_id)
+            StateData.save_state_data_by_key(chat_id, user_id,
+                                             "max_distance", int(max_distance))
+            reply_text = "Select check in date:"
+            now = date.today()
+            reply_markup = generate_calendar_days(year=now.year,
+                                                  month=now.month)
+        bot.send_message(chat_id, reply_text,
+                         reply_markup=reply_markup)
 
     @staticmethod
     def check_calendar_callback(date_info: CallbackQuery) -> Optional[dict]:
@@ -213,42 +273,52 @@ class HandleMsg(ABC):
     @staticmethod
     def show_hotel_photo(chat_id: int, user_id: int, show_photo: str,
                          new_state: StatesGroup) -> None:
-        reply_markup = cancel_reply_keyboard
-        show_photo = show_photo.strip().lower()
-        if not show_photo.isalpha():
-            reply_text = "Use letters only!\n(ex. yes)"
-        elif show_photo not in ['yes', 'no']:
-            reply_text = "Type 'yes' or 'no'.\n(ex. yes)"
-        else:
-            reply_text = "How many photos to display (max 5)?"
-            StateData.save_state_data_by_key(chat_id, user_id,
-                                             "display_hotel_photos", show_photo)
-            if show_photo == "yes":
-                bot.set_state(user_id, new_state, chat_id)
-            else:
-                StateData.save_state_data_by_key(chat_id, user_id,
-                                                 "hotel_photo_amount", 0)
+        if not StateData.retrieve_data_by_key(chat_id, user_id,
+                                              "commence_search"):
+            show_photo = show_photo.strip().lower()
+            if not show_photo.isalpha():
+                reply_text = "Use letters only!\n(ex. yes)"
+            elif show_photo not in ['yes', 'no']:
+                reply_text = "Type 'yes' or 'no'.\n(ex. yes)"
+            elif show_photo == "no":
+                last_step_data = {"display_hotel_photos": show_photo,
+                                  "hotel_photo_amount": 0,
+                                  "commence_search": 'initialized'}
+                StateData.save_multiple_data(chat_id, user_id, last_step_data)
                 HandleMsg._send_final_response(chat_id, user_id)
                 return None
+            else:
+                reply_text = "How many photos to display (max 5)?"
+                StateData.save_state_data_by_key(chat_id, user_id,
+                                                 "display_hotel_photos", show_photo)
+                bot.set_state(user_id, new_state, chat_id)
+        else:
+            reply_text = ("Kindly wait, searching for your suitable hotels.\n"
+                          "*press cancel button if your want to break the search.")
         bot.send_message(chat_id, reply_text,
                          reply_markup=cancel_reply_keyboard)
 
     @staticmethod
     def set_photos_amount(chat_id: int, user_id: int, photo_amount: str) \
             -> None:
-        photo_amount = photo_amount.strip()
-        if not photo_amount.isdigit():
-            reply_text = "Use digits to set photos amount!\n(ex. 3)"
-        elif int(photo_amount) > 5:
-            reply_text = "Max number of photos to display is 5.\n(ex. 5)"
-        elif int(photo_amount) <= 0:
-            reply_text = "Min number of photos to display is 1.\n(ex. 1)"
+        if not StateData.retrieve_data_by_key(chat_id, user_id,
+                                              "commence_search"):
+            photo_amount = photo_amount.strip()
+            if not photo_amount.isdigit():
+                reply_text = "Use digits to set photos amount!\n(ex. 3)"
+            elif int(photo_amount) > 5:
+                reply_text = "Max number of photos to display is 5.\n(ex. 5)"
+            elif int(photo_amount) <= 0:
+                reply_text = "Min number of photos to display is 1.\n(ex. 1)"
+            else:
+                last_step_data = {"hotel_photo_amount": int(photo_amount),
+                                  "commence_search": 'initialized'}
+                StateData.save_multiple_data(chat_id, user_id, last_step_data)
+                HandleMsg._send_final_response(chat_id, user_id)
+                return None
         else:
-            StateData.save_state_data_by_key(chat_id, user_id,
-                                             "hotel_photo_amount", int(photo_amount))
-
-            HandleMsg._send_final_response(chat_id, user_id)
-            return None
+            reply_text = ("Kindly wait, searching for your suitable hotels.\n"
+                          "*press cancel button if your want to break the search.")
         bot.send_message(chat_id, reply_text,
                          reply_markup=cancel_reply_keyboard)
 
@@ -259,24 +329,26 @@ class HandleMsg(ABC):
         bot.send_message(chat_id, user_search_settings)
         CrudDb.update_last_user_entry(db, History, user_id, History.user_request,
                                       user_search_settings)
-        bot.send_message(chat_id, "searching suitable hotels")
+        bot.send_message(chat_id, "searching suitable hotels",
+                         reply_markup=cancel_reply_keyboard)
         hotel_details = HotelsApi.find_hotels_in_city(chat_id, user_id)
-        if hotel_details:
-            if full_state_data["display_hotel_photos"] == "no":
-                reply_text = HandleMsg._create_final_message(hotel_details)
-                for i_text in reply_text:
-                    bot.send_message(chat_id, i_text)
+        if StateData.retrieve_data_by_key(chat_id, user_id, "commence_search"):
+            if hotel_details:
+                if full_state_data["display_hotel_photos"] == "no":
+                    reply_text = HandleMsg._create_final_message(hotel_details)
+                    for i_text in reply_text:
+                        bot.send_message(chat_id, i_text)
+                else:
+                    reply_text = HandleMsg._create_final_message_with_photo(hotel_details)
+                    for i_text in reply_text:
+                        bot.send_media_group(chat_id, i_text)
             else:
-                reply_text = HandleMsg._create_final_message_with_photo(hotel_details)
-                for i_text in reply_text:
-                    bot.send_media_group(chat_id, i_text)
-        else:
-            reply_text = ("There is no available hotels as per your search settings.\n"
-                          "Try again with another search configuration.")
-            bot.send_message(chat_id, reply_text)
-        CrudDb.update_last_user_entry(db, History, user_id, History.bot_response,
-                                      reply_text)
-        StateData.delete_state(chat_id, user_id)
+                reply_text = ("There is no available hotels as per your search settings.\n"
+                              "Try again with another search configuration.")
+                bot.send_message(chat_id, reply_text)
+            CrudDb.update_last_user_entry(db, History, user_id, History.bot_response,
+                                          reply_text)
+            StateData.delete_state(chat_id, user_id)
 
     @staticmethod
     def _sort_user_search_settings(full_state_data: dict) -> str:
@@ -294,13 +366,16 @@ class HandleMsg(ABC):
             co_month=full_state_data["checkOutDate"]["month"],
             co_year=full_state_data["checkOutDate"]["year"]
         )
-        if full_state_data["command"] == BOT_COMMANDS[5][1]:  # best_deal(custom search)
+        if full_state_data["command"] == BOT_COMMANDS[5][1]:  # best_deal shortcut(custom search)
             request_details = ("{request_details}\n"
-                               "Min price: {min_price}\n"
-                               "Max price: {max_price}").format(
+                               "Price range: {min_price} - {max_price} per dayUSD\n"
+                               "Distance range: {min_distance} - {max_distance} MILE"
+                               "").format(
                 request_details=request_details,
                 min_price=full_state_data["min_price"],
-                max_price=full_state_data["max_price"])  # add distance range for best deal
+                max_price=full_state_data["max_price"],
+                min_distance=full_state_data["min_distance"],
+                max_distance=full_state_data["max_distance"])
         request_details = ("{request_details}\n"
                            "Travellers: {travellers}\n"
                            "Hotels: {hotels_amount}\n"
