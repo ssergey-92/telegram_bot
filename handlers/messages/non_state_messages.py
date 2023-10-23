@@ -3,6 +3,7 @@ from keyboards.inline_keyboard.start import start_inline_keyboard
 from loader import bot
 from config_data.config import BOT_COMMANDS
 from .top_budget_hotels_state import reply_msg_low_price
+from .top_luxury_hotels_state import reply_msg_high_price
 
 low_price_shortcut = BOT_COMMANDS[3][1]
 high_price_shortcut = BOT_COMMANDS[4][1]
@@ -16,6 +17,7 @@ def non_state_text_message(message: Message) -> None:
         reply_msg_low_price(message.chat.id, message.from_user.id)
         return None
     elif message.text == high_price_shortcut:
+        reply_msg_high_price(message.chat.id, message.from_user.id)
         return None
     elif message.text == best_deal_shortcut:
         return None

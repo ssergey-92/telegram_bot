@@ -1,11 +1,12 @@
 from abc import ABC
 from requests import get, post, exceptions
+from typing import Union
 from json import dump, load
 
 import backoff
 from loguru import logger
 
-from config_data.config import RAPID_API_KEY
+from config_data.config import RAPID_API_KEY, BOT_COMMANDS
 from handlers.messages.utils.state_data import StateData
 
 base_url = url = "https://hotels4.p.rapidapi.com/"
@@ -42,7 +43,7 @@ class HotelsApi(ABC):
                                                       "hotels_in_city",
                                                       response_part1)
         hotels_data_part1 = HotelsApi._sort_hotels_in_city(file_name_part1,
-                                                           user_data["hotels_amount"])
+                                                           user_data)
         merged_hotel_data = list()
         if hotels_data_part1:
             for index, i_hotel in enumerate(hotels_data_part1):
@@ -152,14 +153,24 @@ class HotelsApi(ABC):
         return sorted_data
 
     @staticmethod
-    def _sort_hotels_in_city(file_name: str, hotels_amount: int) -> list[dict]:
+    def _sort_hotels_in_city(file_name: str, user_data: dict) -> Union[list, list[dict]]:
+        command = user_data["command"]
         with open(file_name, 'r', encoding='utf-8') as data:
             hotels_data = load(data)
         sorted_data = list()
         if hotels_data["data"]:
             properties_data = hotels_data["data"]["propertySearch"]["properties"]
-            hotels_amount = min(hotels_amount, len(properties_data))
-            for index in range(hotels_amount):
+            properties_list_len = len(properties_data)
+            hotels_amount = min(user_data["hotels_amount"], properties_list_len)
+            if command == BOT_COMMANDS[4][1]:      # high_price_shortcut due to available sort "LOW TO HIGH PRICE"
+                start_index = properties_list_len - 1
+                stop_index = start_index - hotels_amount
+                step_range = -1
+            else:
+                start_index = 0
+                stop_index = hotels_amount
+                step_range = 1
+            for index in range(start_index, stop_index, step_range):
                 distance_key = properties_data[index]["destinationInfo"][
                     "distanceFromDestination"]
                 distance_info = "{} {}".format(
@@ -179,8 +190,30 @@ class HotelsApi(ABC):
                                     "price_per_day": price_per_day,
                                     "price_per_stay": price_per_stay}
                                    )
-
+            if command == BOT_COMMANDS[5][1]:
+                # (custom_hotel_search) hotelAPI provides hole hotels for city if there is no hotel
+                # as per price range
+                sorted_data = HotelsApi._custom_hotels_sort(sorted_data, user_data)
         return sorted_data
+
+    @staticmethod
+    def _custom_hotels_sort(sorted_data: list[dict], user_data: dict
+                            ) -> Union[list, list[dict]]:
+        custom_data = list()
+        for i_hotel in sorted_data:
+            hotel_price_per_day = i_hotel["price_per_day"].split(' ')
+            hotel_price_figure = float(hotel_price_per_day[0])
+            if (user_data["min_price"] <= hotel_price_figure
+                    <= user_data["max_price"]):
+                hotel_distance = i_hotel["distance"].split(' ')
+                hotel_distance_figure = float(hotel_distance[0])
+                if (user_data["min_distance"] <= hotel_distance_figure
+                        <= user_data["max_distance"]):
+                    custom_data.append(i_hotel)
+        return custom_data
+
+
+
 
     @staticmethod
     def _sort_hotel_details(file_name_part2: str, display_hotel_photo: str,
@@ -190,7 +223,7 @@ class HotelsApi(ABC):
         hotel_info = hotel_details["data"]["propertyInfo"]
         photos_urls = list()
         hotel_rating = 'not rated'
-        site_url = 'not exist'
+        site_url = 'not provided'
         if display_hotel_photo.lower() == 'yes':
             hotel_photo_amount = min(hotel_photo_amount,
                                      len(hotel_info["propertyGallery"]["images"]))
