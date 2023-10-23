@@ -10,8 +10,9 @@ from loader import bot
 from database.history_model import History, db
 from database.CRUD_interface import CrudDb
 from handlers.sites_API.rapidapi_hotels import HotelsApi
-from .utils.state_data import StateData
+from handlers.messages.utils.state_data import StateData
 from config_data.config import BOT_COMMANDS
+from keyboards.inline_keyboard.start import start_inline_keyboard
 from keyboards.inline_keyboard.calender.keyboards import (
     generate_calendar_days)
 from keyboards.inline_keyboard.search_cities import (
@@ -87,6 +88,8 @@ class HandleMsg(ABC):
             reply_text = "Use digits only to set min price!\n(ex. 50)"
         elif int(min_price) == 0:
             reply_text = "Minimum price per day is 1 USD!\n(ex. 1)"
+        elif int(min_price) >= 100000:
+            reply_text = "Max minimum price per day is 100 000 USD!\n(ex. 10000)"
         else:
             bot.set_state(user_id, new_state, chat_id)
             StateData.save_state_data_by_key(chat_id, user_id,
@@ -343,11 +346,12 @@ class HandleMsg(ABC):
                     for i_text in reply_text:
                         bot.send_media_group(chat_id, i_text)
             else:
-                reply_text = ("There is no available hotels as per your search settings.\n"
-                              "Try again with another search configuration.")
-                bot.send_message(chat_id, reply_text)
-            CrudDb.update_last_user_entry(db, History, user_id, History.bot_response,
-                                          reply_text)
+                reply_text = ("There is no available hotels as per your search settings."
+                              "\nTry again with another search configuration.")
+                bot.send_message(chat_id, reply_text,
+                                 reply_markup=start_inline_keyboard)
+            CrudDb.update_last_user_entry(db, History, user_id,
+                                          History.bot_response, reply_text)
             StateData.delete_state(chat_id, user_id)
 
     @staticmethod
@@ -368,7 +372,7 @@ class HandleMsg(ABC):
         )
         if full_state_data["command"] == BOT_COMMANDS[5][1]:  # best_deal shortcut(custom search)
             request_details = ("{request_details}\n"
-                               "Price range: {min_price} - {max_price} per dayUSD\n"
+                               "Price range: {min_price} - {max_price} per day in USD\n"
                                "Distance range: {min_distance} - {max_distance} MILE"
                                "").format(
                 request_details=request_details,
