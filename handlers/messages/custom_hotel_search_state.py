@@ -6,7 +6,7 @@ from keyboards.inline_keyboard.calender.filters import (calendar_factory,
 from loader import bot
 from states.custom_search import CustomSearchStates
 from config_data.config import BOT_COMMANDS
-from .handle_state_messages import HandleMsg
+from .utils.handle_state_messages import HandleMsg
 
 best_deal_cmd = BOT_COMMANDS[5][0]
 best_deal_shortcut = BOT_COMMANDS[5][1]

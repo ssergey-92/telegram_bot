@@ -8,7 +8,7 @@ from keyboards.inline_keyboard.calender.filters import (calendar_factory,
 from loader import bot
 from states.budget_search import BudgetSearchStates
 from config_data.config import BOT_COMMANDS
-from .handle_state_messages import HandleMsg
+from .utils.handle_state_messages import HandleMsg
 
 low_price_cmd = BOT_COMMANDS[3][0]
 low_price_shortcut = BOT_COMMANDS[3][1]

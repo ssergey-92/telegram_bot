@@ -5,6 +5,7 @@ from loader import bot
 from config_data.config import BOT_COMMANDS
 from .utils.state_data import StateData
 
+
 @bot.message_handler(commands=["help"])
 def help_command(message: Message) -> None:
     reply_msg_help(message.chat.id, message.from_user.id)

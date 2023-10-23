@@ -1,5 +1,6 @@
 from telebot.types import BotCommand
 from telebot import TeleBot
+
 from config_data.config import BOT_COMMANDS
 
 

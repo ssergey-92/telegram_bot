@@ -158,42 +158,45 @@ class HotelsApi(ABC):
         with open(file_name, 'r', encoding='utf-8') as data:
             hotels_data = load(data)
         sorted_data = list()
-        if hotels_data["data"]:
-            properties_data = hotels_data["data"]["propertySearch"]["properties"]
-            properties_list_len = len(properties_data)
-            hotels_amount = min(user_data["hotels_amount"], properties_list_len)
-            if command == BOT_COMMANDS[4][1]:      # high_price_shortcut due to available sort "LOW TO HIGH PRICE"
-                start_index = properties_list_len - 1
-                stop_index = start_index - hotels_amount
-                step_range = -1
-            else:
-                start_index = 0
-                stop_index = hotels_amount
-                step_range = 1
-            for index in range(start_index, stop_index, step_range):
-                distance_key = properties_data[index]["destinationInfo"][
-                    "distanceFromDestination"]
-                distance_info = "{} {}".format(
-                    distance_key["value"],
-                    distance_key["unit"]
-                )
-                price_per_day = "{} {}".format(
-                    round(properties_data[index]["price"]["lead"]["amount"], 2),
-                    properties_data[index]["price"]["lead"]["currencyInfo"]["code"]
-                )
-                price_per_stay = properties_data[index]["price"]["displayMessages"][
-                    1]["lineItems"][0]["value"]
-                price_per_stay = price_per_stay.replace('total', 'including all taxes')
-                sorted_data.append({"name": properties_data[index]["name"],
-                                    "property_id": properties_data[index]["id"],
-                                    "distance": distance_info,
-                                    "price_per_day": price_per_day,
-                                    "price_per_stay": price_per_stay}
-                                   )
-            if command == BOT_COMMANDS[5][1]:
-                # (custom_hotel_search) hotelAPI provides hole hotels for city if there is no hotel
-                # as per price range
-                sorted_data = HotelsApi._custom_hotels_sort(sorted_data, user_data)
+        try:
+            if hotels_data["data"]:
+                properties_data = hotels_data["data"]["propertySearch"]["properties"]
+                properties_list_len = len(properties_data)
+                hotels_amount = min(user_data["hotels_amount"], properties_list_len)
+                if command == BOT_COMMANDS[4][1]:      # high_price_shortcut due to available sort "LOW TO HIGH PRICE"
+                    start_index = properties_list_len - 1
+                    stop_index = start_index - hotels_amount
+                    step_range = -1
+                else:
+                    start_index = 0
+                    stop_index = hotels_amount
+                    step_range = 1
+                for index in range(start_index, stop_index, step_range):
+                    distance_key = properties_data[index]["destinationInfo"][
+                        "distanceFromDestination"]
+                    distance_info = "{} {}".format(
+                        distance_key["value"],
+                        distance_key["unit"]
+                    )
+                    price_per_day = "{} {}".format(
+                        round(properties_data[index]["price"]["lead"]["amount"], 2),
+                        properties_data[index]["price"]["lead"]["currencyInfo"]["code"]
+                    )
+                    price_per_stay = properties_data[index]["price"]["displayMessages"][
+                        1]["lineItems"][0]["value"]
+                    price_per_stay = price_per_stay.replace('total', 'including all taxes')
+                    sorted_data.append({"name": properties_data[index]["name"],
+                                        "property_id": properties_data[index]["id"],
+                                        "distance": distance_info,
+                                        "price_per_day": price_per_day,
+                                        "price_per_stay": price_per_stay}
+                                       )
+                if command == BOT_COMMANDS[5][1]:
+                    # (custom_hotel_search) hotelAPI provides hole hotels for city if there is no hotel
+                    # as per price range
+                    sorted_data = HotelsApi._custom_hotels_sort(sorted_data, user_data)
+        except TypeError as exc:
+            print(f'Sort hotels in city exception: {exc}')
         return sorted_data
 
     @staticmethod
@@ -211,8 +214,6 @@ class HotelsApi(ABC):
                         <= user_data["max_distance"]):
                     custom_data.append(i_hotel)
         return custom_data
-
-
 
 
     @staticmethod
