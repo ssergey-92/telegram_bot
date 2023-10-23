@@ -22,7 +22,6 @@ class StateData(ABC):
         except KeyError as exc:
             print(exc)
 
-
     @staticmethod
     def retrieve_data_by_key(chat_id: int, user_id: int, key: str) -> Any:
         try:
