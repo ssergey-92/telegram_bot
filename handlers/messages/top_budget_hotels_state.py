@@ -1,12 +1,14 @@
+from datetime import date
+
 from telebot.types import Message, CallbackQuery
 from keyboards.inline_keyboard.calender.keyboards import (
     generate_calendar_days, generate_calendar_months)
 from keyboards.inline_keyboard.calender.filters import (calendar_factory,
                                                         calendar_zoom)
 from loader import bot
-from states.BudgetSearch import BudgetSearchStates
+from states.budget_search import BudgetSearchStates
 from config_data.config import BOT_COMMANDS
-from .handle_state_messages import HandleMsg
+from .utils.handle_state_messages import HandleMsg
 
 low_price_cmd = BOT_COMMANDS[3][0]
 low_price_shortcut = BOT_COMMANDS[3][1]
@@ -35,17 +37,20 @@ def budget_input_city_state(message: Message) -> None:
                             state=BudgetSearchStates.confirm_city)
 def budget_confirm_city_state_callback(call: CallbackQuery):
     reply_text = "Select check in date:"
+    now = date.today()
+    reply_markup = generate_calendar_days(year=now.year,
+                                          month=now.month)
     HandleMsg.confirm_city(call.message.chat.id, call.from_user.id,
                            BudgetSearchStates.check_in_date,
-                           BudgetSearchStates.input_city, reply_text, call.data)
+                           BudgetSearchStates.input_city, reply_text, call.data,
+                           reply_markup)
 
 
 @bot.message_handler(state=BudgetSearchStates.confirm_city)
 def budget_confirm_city_state_msg(message: Message) -> None:
-    reply_text = "Select check in date:"
     HandleMsg.confirm_city(message.chat.id, message.from_user.id,
                            BudgetSearchStates.check_in_date,
-                           BudgetSearchStates.input_city, reply_text)
+                           BudgetSearchStates.input_city)
 
 
 @bot.callback_query_handler(func=None,
