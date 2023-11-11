@@ -3,6 +3,13 @@ from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 def create_search_city_inline_keyboard(sorted_data: list[dict]) \
         -> InlineKeyboardMarkup:
+    """
+    Making inline keyboard with search cities names and "type another city".
+
+    :return: city_inline_keyboard
+    :rtype: InlineKeyboardMarkup
+    """
+
     city_inline_keyboard = InlineKeyboardMarkup(row_width=1)
     for index in range(len(sorted_data)):
         city_inline_keyboard.add(InlineKeyboardButton(

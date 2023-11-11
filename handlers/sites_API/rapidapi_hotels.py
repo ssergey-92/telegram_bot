@@ -4,7 +4,6 @@ from typing import Union
 from json import dump, load
 
 import backoff
-from loguru import logger
 
 from config_data.config import RAPID_API_KEY, BOT_COMMANDS
 from handlers.messages.utils.state_data import StateData
@@ -24,9 +23,29 @@ headers_post = {
 
 
 class HotelsApi(ABC):
+    """
+    Base Class HotelsApi.
+    Class for handling request and responses with website
+    https://rapidapi.com/apidojo/api/hotels4/
+    """
 
     @staticmethod
     def check_city(user_id: int, input_city: str, command: str) -> list[dict]:
+        """
+        Checking and collecting possible cities details from
+        https://rapidapi.com/apidojo/api/hotels4/. Returns possible cities details.
+
+        :param user_id: User identifier
+        :type : int
+        :param input_city: city name inputted by user
+        :type : str
+        :param command: bot command
+        :type command: str
+
+        :return: hotels api response sorted data with cities details
+        :rtype: list[dict]
+        """
+
         response_data = HotelsApi._search_city_request(input_city)
         file_name = HotelsApi._create_json_file(user_id, command, input_city,
                                                 HotelsApi.check_city.__name__, response_data)
@@ -35,6 +54,20 @@ class HotelsApi(ABC):
 
     @staticmethod
     def find_hotels_in_city(chat_id: int, user_id: int) -> list[dict]:
+        """
+        Searching and collecting hotels details from
+        https://rapidapi.com/apidojo/api/hotels4/. Returns hotels details
+        if matched with user request settings or empty list.
+
+        :param chat_id: Chat identifier
+        :type chat_id: int
+        :param user_id: User identifier
+        :type user_id: int
+
+        :return: hotels api response sorted data with hotels details
+        :rtype: list[dict]
+        """
+
         user_data = StateData.retrieve_full_data_by_id(chat_id, user_id)
         response_part1 = HotelsApi._search_hotels_request(user_data)
         file_name_part1 = HotelsApi._create_json_file(user_id,
@@ -66,13 +99,24 @@ class HotelsApi(ABC):
                           max_time=60,
                           max_tries=2)
     def _search_city_request(input_city: str) -> dict:
+        """
+        Searching cites data in https://rapidapi.com/apidojo/api/hotels4/.
+        (get request)
+
+        :param input_city: city name
+        :type input_city: str
+
+        :return: hotels api response sorted data with cities details
+        :rtype: dict
+        """
+
         location_endpoint = "locations/v3/search"
         search_url = "{}{}".format(base_url, location_endpoint)
         querystring = {"q": input_city}
         response = get(url=search_url, headers=headers_get, params=querystring,
-                       timeout=10).json()
-
-        return response
+                       timeout=10)
+        print(response)
+        return response.json()
 
     @staticmethod
     @backoff.on_exception(backoff.expo,
@@ -80,6 +124,17 @@ class HotelsApi(ABC):
                           max_time=60,
                           max_tries=2)
     def _search_hotels_request(user_data: dict) -> dict:
+        """
+        Searching hotels in city in https://rapidapi.com/apidojo/api/hotels4/
+        (post request)
+
+        :param user_data: user search settings details
+        :type user_data: dict
+
+        :return: hotels api response sorted data with hotels details
+        :rtype: dict
+        """
+
         location_endpoint = "properties/v2/list"
         hotels_url = "{}{}".format(base_url, location_endpoint)
         payload = {
@@ -114,6 +169,17 @@ class HotelsApi(ABC):
                           max_time=60,
                           max_tries=2)
     def _get_hotel_details_request(property_id: str) -> dict:
+        """
+        Searching hotel specific details in
+        https://rapidapi.com/apidojo/api/hotels4/ (post request)
+
+        :param property_id: unic hotel id
+        :type property_id: str
+
+        :return: hotels api response sorted data with hotel specific details
+        :rtype: dict
+        """
+
         hotel_detail_endpoint = "properties/v2/detail"
         hotel_details_url = "{}{}".format(base_url, hotel_detail_endpoint)
         payload = {
@@ -127,6 +193,24 @@ class HotelsApi(ABC):
     @staticmethod
     def _create_json_file(user_id: int, command: str, city_or_hotel: str,
                           method_name: str, response: dict) -> str:
+        """
+        Creating json file.
+
+        :param user_id: User identifier
+        :type : int
+        :param command: name of command shortcut
+        :type : str
+        :param city_or_hotel: name of city or hotel
+        :type : str
+        :param method_name: name of method
+        :type : str
+        :param response: data for writing in file
+        :type : dict
+
+        :return: json file name
+        :rtype: str
+        """
+
         file_name = ("handlers/sites_API/hotels_response_files/{user_id}"
                      "_{command}_{city_or_hotel}_{method_name}.json").format(
             user_id=user_id,
@@ -140,10 +224,21 @@ class HotelsApi(ABC):
 
     @staticmethod
     def _sort_searched_cities(file_name: str) -> list[dict]:
+        """
+        Sorting cities details as per city type(city_type) and extracting city id
+         and full name.
+
+        :param file_name: file name with cities details
+        :type file_name: str
+
+        :return: sorted data with cities details
+        :rtype: list[dict]
+        """
+
         with open(file_name, 'r', encoding='utf-8') as data:
             locations_data = load(data)
         sorted_data = list()
-        if locations_data["sr"]:
+        if locations_data and locations_data.get("sr"):
             city_type = ["CITY", "NEIGHBORHOOD", "MULTIREGION"]
             for i_data in enumerate(locations_data["sr"]):
                 if i_data[1]["type"] in city_type:
@@ -153,7 +248,20 @@ class HotelsApi(ABC):
         return sorted_data
 
     @staticmethod
-    def _sort_hotels_in_city(file_name: str, user_data: dict) -> Union[list, list[dict]]:
+    def _sort_hotels_in_city(file_name: str, user_data: dict) \
+            -> Union[list, list[dict]]:
+        """
+        Sorting hotels in city details as per bot command shortcut ("Top Budget
+        Hotels", "Top Luxury Hotels", "Custom Hotel Search").
+
+        :param file_name: file name with cities details
+        :type file_name: str
+
+        :return: sorted data with hotels details(hotel name, hotel id, distance
+        from city center, hotel  price per day and price per stay)
+        :rtype: list[dict]
+        """
+
         command = user_data["command"]
         with open(file_name, 'r', encoding='utf-8') as data:
             hotels_data = load(data)
@@ -163,7 +271,8 @@ class HotelsApi(ABC):
                 properties_data = hotels_data["data"]["propertySearch"]["properties"]
                 properties_list_len = len(properties_data)
                 hotels_amount = min(user_data["hotels_amount"], properties_list_len)
-                if command == BOT_COMMANDS[4][1]:      # high_price_shortcut due to available sort "LOW TO HIGH PRICE"
+                if command == BOT_COMMANDS[4][1]:  # top_luxury_hotels  shortcut
+                    # settings for range due to available sort "LOW TO HIGH PRICE"
                     start_index = properties_list_len - 1
                     stop_index = start_index - hotels_amount
                     step_range = -1
@@ -191,8 +300,8 @@ class HotelsApi(ABC):
                                         "price_per_day": price_per_day,
                                         "price_per_stay": price_per_stay}
                                        )
-                if command == BOT_COMMANDS[5][1]:
-                    # (custom_hotel_search) hotelAPI provides hole hotels for city if there is no hotel
+                if command == BOT_COMMANDS[5][1]:  # custom_hotel_search shortcut
+                    # hotelAPI provides hole hotels data for city if there is no hotel
                     # as per price range
                     sorted_data = HotelsApi._custom_hotels_sort(sorted_data, user_data)
         except TypeError as exc:
@@ -202,6 +311,20 @@ class HotelsApi(ABC):
     @staticmethod
     def _custom_hotels_sort(sorted_data: list[dict], user_data: dict
                             ) -> Union[list, list[dict]]:
+        """
+        Sorting hotels in city as per price and distance from city range and user
+        required hotels quantity.
+
+        :param sorted_data: sorted data with hotels details(hotel name, hotel id,
+         distance, from city center, hotel  price per day and price per stay)
+        :type sorted_data: list[dict]
+        :param user_data: user search settings details
+        :type user_data: dict
+
+        :return: sorted hotels data
+        :rtype: Union[list, list[dict]]
+        """
+
         custom_data = list()
         for i_hotel in sorted_data:
             hotel_price_per_day = i_hotel["price_per_day"].split(' ')
@@ -215,10 +338,24 @@ class HotelsApi(ABC):
                     custom_data.append(i_hotel)
         return custom_data
 
-
     @staticmethod
     def _sort_hotel_details(file_name_part2: str, display_hotel_photo: str,
                             hotel_photo_amount: int) -> dict:
+        """
+        Extracting and making dict with hotel specific details.
+
+        :param file_name_part2: file name with hotel details
+        :type file_name_part2: str
+        :param display_hotel_photo: answer yes/no for displaying hotel photos
+        :type display_hotel_photo: str
+        :param hotel_photo_amount:  displaying hotel photos amount
+        :type hotel_photo_amount:int
+
+        :return: sorted hotel specific details(hotel website, hotel address,
+        hotel_rating, photos_url)
+        :rtype: dict
+        """
+
         with open(file_name_part2, 'r', encoding='utf-8') as data:
             hotel_details = load(data)
         hotel_info = hotel_details["data"]["propertyInfo"]

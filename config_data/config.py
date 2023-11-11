@@ -4,7 +4,6 @@ from typing import Optional
 
 from dotenv import load_dotenv, find_dotenv
 
-
 BOT_COMMANDS = (
     ("start", "Start Bot", "Launching the bot."),
     ("cancel_search", "Cancel Current Search",
@@ -21,6 +20,15 @@ BOT_COMMANDS = (
 
 
 def get_bot_token_apikey() -> Optional[tuple[str, str]]:
+    """
+    Searching and retrieving BOT_TOKEN, RAPID_API_KEY form env file.
+    If BOT_TOKEN or RAPID_API_KEY is not found, program will be  canceled.
+
+
+    :return : (BOT_TOKEN, RAPID_API_KEY) | None
+    :rtype: Optional[tuple[str, str]]
+    """
+
     error_text = "File .env is not found."
     if find_dotenv():
         load_dotenv()
@@ -36,6 +44,3 @@ def get_bot_token_apikey() -> Optional[tuple[str, str]]:
 
 
 BOT_TOKEN, RAPID_API_KEY = get_bot_token_apikey()
-
-
-

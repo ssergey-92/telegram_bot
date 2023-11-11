@@ -4,12 +4,24 @@ from datetime import date, timedelta
 from .filters import calendar_factory, calendar_zoom
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-
 WEEK_DAYS = [calendar.day_abbr[i] for i in range(7)]
 MONTHS = [(i, calendar.month_name[i]) for i in range(1, 13)]
 
 
 def generate_calendar_days(year: int, month: int) -> InlineKeyboardMarkup:
+    """
+    Creating primary screen of calendar inline keyboard with days for month
+     (part 1 of 2 for calendar inline keyboard).
+
+    :param year: year
+    :type  year: int
+    :param month: month
+    :type month: int
+
+    :return: primary screen of calendar with days for month
+    :rtype: InlineKeyboardMarkup
+    """
+
     keyboard = InlineKeyboardMarkup(row_width=7)
     today = date.today()
 
@@ -68,6 +80,17 @@ def generate_calendar_days(year: int, month: int) -> InlineKeyboardMarkup:
 
 
 def generate_calendar_months(year: int) -> InlineKeyboardMarkup:
+    """
+    Creating secondary screen of calendar inline keyboard with months for year
+    (part 2 of 2 for calendar inline keyboard).
+
+    :param year: year
+    :type year: int
+
+    :return: secondary calendar screen with months for year
+    :rtype:  InlineKeyboardMarkup
+    """
+
     keyboard = InlineKeyboardMarkup(row_width=3)
     keyboard.add(
         InlineKeyboardButton(
