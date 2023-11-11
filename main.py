@@ -12,6 +12,10 @@ import database
 
 @logger.catch()
 def load_telegram_bot() -> None:
+    """
+    Setting state filters, bot commands and launches telegram bot.
+    """
+
     bot.add_custom_filter(StateFilter(bot))
     add_calendar_filters(bot)
     set_bot_commands(bot)
