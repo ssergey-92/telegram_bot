@@ -2,7 +2,6 @@
 
 from sys import exit
 
-from loguru import logger
 from telebot.custom_filters import StateFilter
 
 from loader import bot
@@ -11,7 +10,6 @@ from utils.set_bot_commands import set_bot_commands
 from keyboards.inline.calender.filters import add_calendar_filters
 
 
-@logger.catch()
 def load_telegram_bot() -> None:
     """Setting state filters, bot commands and launches telegram bot."""
 

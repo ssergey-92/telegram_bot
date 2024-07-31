@@ -1,4 +1,5 @@
 """Module with ORM table 'history' and its initialization"""
+import os
 
 from peewee import (
     SqliteDatabase,
@@ -9,7 +10,9 @@ from peewee import (
     IntegerField,
 )
 
-db = SqliteDatabase("database/telegram_bot.db")
+parent_dir_abs_path = os.path.abspath(os.path.dirname(__file__))
+db_path = os.path.join(parent_dir_abs_path, os.getenv("DB_NAME"))
+db = SqliteDatabase(db_path)
 
 
 class History(Model):

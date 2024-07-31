@@ -8,7 +8,7 @@ from os import getenv
 from telebot import TeleBot, storage
 
 import config_data.config
-import database
+import database.history_model
 
 """Create state storage for multiuser mode and set bot base settings"""
 state_storage = storage.StateMemoryStorage()

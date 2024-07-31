@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+
+  telegram_bot:
+    build:
+      context: ./
+    stop_signal: SIGKILL
+    env_file:
+      - ./.env
+    volumes:
+      - ./database/telegram_bot.db:/telegram_bot/database/telegram_bot.db
+      - ./project_logging/logs:/telegram_bot/project_logging/logs
+      - ./handlers/sites_API/hotels_response_files:/telegram_bot/handlers/sites_API/hotels_response_files

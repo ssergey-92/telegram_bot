@@ -72,6 +72,8 @@ def load_env_data() -> None:
             error_text = "RAPID API KEY is not found."
         elif not getenv("LOGS_FILE_NAME"):
             error_text = "Logs files name is not found"
+        elif not getenv("DB_NAME"):
+            error_text = "Database name is not found"
         else:
             return
     exit(error_text)
