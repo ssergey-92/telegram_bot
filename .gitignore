@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 .idea/*
 .env
-/handlers/sites_API/hotels_response_files/old_json/
+/handlers/sites_API/hotels_response_files/

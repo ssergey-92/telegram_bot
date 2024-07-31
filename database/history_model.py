@@ -1,7 +1,18 @@
-from peewee import (SqliteDatabase, Model, AutoField, DateTimeField,
-                    TextField, IntegerField)
+"""Module with ORM table 'history' and its initialization"""
+import os
 
-db = SqliteDatabase('database/telegram_bot.db')
+from peewee import (
+    SqliteDatabase,
+    Model,
+    AutoField,
+    DateTimeField,
+    TextField,
+    IntegerField,
+)
+
+parent_dir_abs_path = os.path.abspath(os.path.dirname(__file__))
+db_path = os.path.join(parent_dir_abs_path, os.getenv("DB_NAME"))
+db = SqliteDatabase(db_path)
 
 
 class History(Model):
@@ -22,8 +33,8 @@ class History(Model):
     user_id = IntegerField()
     created_at = DateTimeField()
     command = TextField()
-    user_request = TextField(default='Search was canceled by user')
-    bot_response = TextField(default='not initialized')
+    user_request = TextField(default="Search was canceled by user")
+    bot_response = TextField(default="not initialized")
 
     class Meta:
         """
@@ -35,9 +46,9 @@ class History(Model):
         """
 
         database = db
-        table_name = 'history'
+        table_name = "history"
 
 
-"""Creating table History if table History is not existed in telegram_bot.db """
+"""Create table History if it is not existed in telegram_bot.db """
 with db.atomic():
     db.create_tables([History])

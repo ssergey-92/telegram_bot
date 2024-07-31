@@ -1,1 +1,1 @@
-from . import inline_keyboard, reply_keyboard
+from . import inline, reply
