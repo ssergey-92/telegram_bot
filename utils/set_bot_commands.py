@@ -1,18 +1,23 @@
-from telebot.types import BotCommand
+"""Module for setting telegram bot commands"""
+
 from telebot import TeleBot
+from telebot.types import BotCommand
+
 
 from config_data.config import BOT_COMMANDS
 
 
 def set_bot_commands(bot: TeleBot) -> None:
-    """
-    Setting  commands for telegram bot.
+    """Set telegram bot commands.
 
-    :param bot: Telegram bot from pyTelegramBotApi
-    :type  bot: bot
-    """
+    Args:
+        bot (bot): Telegram bot from pyTelegramBotApi
 
-    bot.set_my_commands([BotCommand(
-        command=command[0],
-        description=command[1])
-        for command in BOT_COMMANDS])
+    """
+    bot_commands_list = []
+    for commands in BOT_COMMANDS.values():
+        for i_command in commands:
+            bot_commands_list.append(
+                BotCommand(i_command["command"], i_command["shortcut"])
+            )
+    bot.set_my_commands(bot_commands_list)

@@ -1,38 +1,56 @@
+"""Module for catching callback query data with func=True and without state.
+
+Handling call.data which contains dot commands.
+"""
+
 from telebot.types import CallbackQuery
 
+from .commands_handlers.best_deal import handle_best_deal_command
+from .commands_handlers.cancel_search import handle_cancel_search_command
+from .commands_handlers.help import handle_help_command
+from .commands_handlers.high_price import handle_high_price_command
+from .commands_handlers.history import handle_history_search_command
+from .commands_handlers.low_price import handle_low_price_command
+from .commands_handlers.start import handle_start_command
+from config_data.config import (
+    START_COMMAND_DATA,
+    CANSEL_SEARCH_COMMAND_DATA,
+    HELP_COMMAND_DATA,
+    LOW_PRICE_COMMAND_DATA,
+    HIGH_PRICE_COMMAND_DATA,
+    BEST_DEALS_COMMAND_DATA,
+    HISTORY_COMMAND_DATA,
+)
 from loader import bot
-from .start_cmd import reply_msg_start
-from .cancel_search_cmd import reply_msg_cancel_search
-from .help_cmd import reply_msg_help
-from .top_budget_hotels_state import reply_msg_low_price
-from .top_luxury_hotels_state import reply_msg_high_price
-from .custom_hotel_search_state import reply_msg_best_deal
-from .history_state import reply_msg_history
-from config_data.config import BOT_COMMANDS
+from project_logging.bot_logger import bot_logger
 
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call: CallbackQuery) -> None:
-    """
-    Catching unstated incoming callback query from a callback button in an
-    inline keyboard and calling appropriate function according to bot commands.
+    """Catch unstated incoming callback query from inline keyboard.
 
-    :param call:  user reply data from inline keyboard
-    :type call: CallbackQuery
-    """
+    Call appropriate handling function according to bot commands.
 
-    if call.data == BOT_COMMANDS[0][0]:  # /start
-        reply_msg_start(call.message.chat.id, call.from_user.id,
-                        call.from_user.full_name)
-    elif call.data == BOT_COMMANDS[1][0]:  # /cancel_search
-        reply_msg_cancel_search(call.message.chat.id, call.from_user.id)
-    elif call.data == BOT_COMMANDS[2][0]:  # /help
-        reply_msg_help(call.message.chat.id, call.from_user.id)
-    elif call.data == BOT_COMMANDS[3][0]:  # /low_price
-        reply_msg_low_price(call.message.chat.id, call.from_user.id)
-    elif call.data == BOT_COMMANDS[4][0]:  # /high_price
-        reply_msg_high_price(call.message.chat.id, call.from_user.id)
-    elif call.data == BOT_COMMANDS[5][0]:  # /best_deal
-        reply_msg_best_deal(call.message.chat.id, call.from_user.id)
-    elif call.data == BOT_COMMANDS[6][0]:  # /history
-        reply_msg_history(call.message.chat.id, call.from_user.id)
+    Args:
+        call (CallbackQuery): user reply data from inline keyboard
+
+    """
+    bot_logger.info(
+        f"{call.data=}, {call.message.chat.id=}, {call.from_user.id=}"
+    )
+    if call.data == START_COMMAND_DATA["command"]:
+        handle_start_command(
+            call.message.chat.id, call.from_user.id, call.from_user.full_name,
+        )
+    elif call.data == CANSEL_SEARCH_COMMAND_DATA["command"]:
+        handle_cancel_search_command(call.message.chat.id, call.from_user.id)
+    elif call.data == HELP_COMMAND_DATA["command"]:
+        handle_help_command(call.message.chat.id, call.from_user.id)
+    elif call.data == LOW_PRICE_COMMAND_DATA["command"]:
+        handle_low_price_command(call.message.chat.id, call.from_user.id)
+    elif call.data == HIGH_PRICE_COMMAND_DATA["command"]:
+        handle_high_price_command(call.message.chat.id, call.from_user.id)
+    elif call.data == BEST_DEALS_COMMAND_DATA["command"]:
+        handle_best_deal_command(call.message.chat.id, call.from_user.id)
+    elif call.data == HISTORY_COMMAND_DATA["command"]:
+        handle_history_search_command(call.message.chat.id, call.from_user.id)
