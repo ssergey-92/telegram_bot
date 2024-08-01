@@ -34,11 +34,9 @@ Telegram bot is:
 - written on Python 3.10.12
 - used Docker Compose as a tool for running the application
 - used TelegramBotAPI 4.14.0 for creating telegram bot
-- used database sqlite3 and ORM peewee for datastorage
-- used requests 2.31.0 and backoff 2.2.1 for HTTP requests
-- code is covered with docstring and type hints
-
-**
+- used database SQLite and ORM Peewee for datastorage
+- used Requests 2.31.0 and Backoff 2.2.1 for HTTP requests
+- code is covered with Docstring and Type Hints
 
 ### Getting started 
 
