@@ -1,4 +1,7 @@
-## Telegram Bot "Global Hotel Search" ##
+<h1 align="center"> Telegram Bot <br>"Global Hotel Search" </h1>
+<p align="center">
+<img src="app_screenshot.png">
+</p>
 
 ### Description  ###
 
@@ -14,8 +17,9 @@ There are 3 hotel search functions available:
 - Top Luxury hotels search.
 - Custom hotels search.
 
-In addition to the above bot supports help navigation and search history
-functions.
+In addition, bot supports functions:
+- Help 
+- History search
 
 ### Features ###
 
@@ -25,37 +29,58 @@ Telegram bot is:
 - Providing live data.
 - Easy to launch.
 
-### Libraries ###
+### Project Stack ###
 
-Following libraries and Python 3.11 is used for running the Bot:
+- written on Python 3.10.12
+- used Docker Compose as a tool for running the application
+- used TelegramBotAPI 4.14.0 for creating telegram bot
+- used database sqlite3 and ORM peewee for datastorage
+- used requests 2.31.0 and backoff 2.2.1 for HTTP requests
+- code is covered with docstring and type hints
 
-- backoff 2.2.1
-- loguru 0.7.2
-- mypy 1.6.1
-- peewee 3.16.3
-- pyTelegramBotAPI 4.14.0
-- requests 2.31.0
+**
 
-### Getting started ###
+### Getting started 
 
-This Bot is tested with Python 3.11.  
-There is the easy way for getting started for Python package manager
-for windows:
+This app is easy to start. Follow  the bellow requirements for Linux (Ubuntu): 
 
-1) Download project:  
-   $ git clone https://gitlab.skillbox.ru/sergei_solop/python_basic_diploma.git
+#### Installation
 
-2) Rename file ".env.template" to ".env" and insert your rapid API key and
-   Bot token.
-    1) Register and get API key from https://rapidapi.com/apidojo/api/hotels4/.
-    2) Register new telegram bot and get Bot token from BotFather
-       https://telegram.me/BotFather.
+Ignore the following steps if you have already installed Docker Compose, Python 3.10.12 and Git.
 
-3) Install libraries:  
-   $ pip install -r requirements.txt
+1. Install docker engine and compose plugin for it.   
+- Follow steps from official site:  [Docker Engine Install](https://docs.docker.com/engine/install/ubuntu/) and [Docker Compose Install](https://docs.docker.com/compose/install/)
 
-4) Launch the bot:  
-   Ran "main.py"
+2. Install one of:
+- Python 3.10.12 from official site:  [Python Downloads](https://www.python.org/downloads/)
+- IDE PyCharm with Python 3.10.12 from official site: [PyCharm Installation Guide](https://www.jetbrains.com/help/pycharm/installation-guide.html#standalone)
+
+3. Install Git for "git clone" if required.
+- Follow steps from official site: [Git install](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+
+#### Clone or copy repository
+
+Select one of the below options:
+- git clone from https://github.com/ssergey-92/telegram_bot.git
+- copy project from [github](https://github.com/ssergey-92/telegram_bot)
+
+#### Add .env file
+
+Rename ".env.template" to ".env" and insert required data.
+- Register and get API key from [rapidapi](https://rapidapi.com/apidojo/api/hotels4/).
+- Register new telegram bot and get Bot token from [Telegram BotFather](https://telegram.me/BotFather).
+
+#### Running the application:
+
+- From the command line: 
+```
+cd 'your path to project root directory'
+python main.py
+```
+- From IDE PyCharm
+```
+run main.py
+```
 
 ### Developer ###
 
