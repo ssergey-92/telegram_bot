@@ -21,7 +21,7 @@ coverage.xml
 .hypothesis
 
 Dockerfile
-docker-compose.yaml
+docker-compose.yml
 previous-df
 .dockerignore
 .gitignore

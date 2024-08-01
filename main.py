@@ -1,25 +1,35 @@
-"""Module for launching Telegram Bot 'Global Hotel Search'"""
+"""Module for launching Telegram Bot 'Global Hotel Search' in docker container.
 
-from sys import exit
+Build and start docker compose. After catching signal KeyboardInterrupt
+stop and remove docker compose containers.
+"""
 
-from telebot.custom_filters import StateFilter
-
-from loader import bot
-import handlers
-from utils.set_bot_commands import set_bot_commands
-from keyboards.inline.calender.filters import add_calendar_filters
+from signal import SIGINT, signal
+from subprocess import run as subprocess_run
+from typing import Optional
+from types import FrameType
 
 
-def load_telegram_bot() -> None:
-    """Setting state filters, bot commands and launches telegram bot."""
+def signal_handler(signum: int, frame: Optional[FrameType]) -> None:
+    """Catch signal 'SIGINT' keyboard interrupt.
 
-    bot.add_custom_filter(StateFilter(bot))
-    add_calendar_filters(bot)
-    set_bot_commands(bot)
-    bot.infinity_polling(skip_pending=True)
+    Stop and remove docker containers from docker compose
+
+    Args:
+        signum (int): signal number
+        frame (Optional[FrameType]): object that represents the call stack at
+        the time the signal is generated
+    """
+    subprocess_run(
+        args="docker compose stop && docker compose rm",
+        shell=True,
+        input="y",
+        encoding="utf-8",
+    )
 
 
 if __name__ == "__main__":
-    load_telegram_bot()
-else:
-    exit("Access is denied")
+    signal(SIGINT, signal_handler)
+    launch_telegram_bot = subprocess_run(
+        args="docker compose -f docker-compose.yml up --build", shell=True,
+    )

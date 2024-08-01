@@ -5,7 +5,7 @@ from sys import exit
 
 from dotenv import load_dotenv, find_dotenv
 
-BOT_NAME = "Hotel Data Provider"
+BOT_NAME = "Global Hotel Search"
 START_COMMAND_DATA = {
     "command": "start",
     "shortcut": "Start Bot",

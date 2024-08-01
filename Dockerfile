@@ -10,4 +10,4 @@ COPY ./ /telegram_bot/
 WORKDIR /telegram_bot/
 ENV PYTHONPATH="/telegram_bot:${PYTHONPATH}"
 
-CMD ["python", "main.py"]
+CMD ["python", "launch_bot.py"]
