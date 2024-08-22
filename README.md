@@ -31,12 +31,11 @@ Telegram bot is:
 
 ### Project Stack ###
 
-- written on Python 3.10.12
-- used Docker Compose as a tool for running the application
-- used TelegramBotAPI 4.14.0 for creating telegram bot
-- used database SQLite and ORM Peewee for datastorage
-- used Requests 2.31.0 and Backoff 2.2.1 for HTTP requests
-- code is covered with Docstring and Type Hints
+- Python 3.10
+- Docker Compos
+- TelegramBotAPI
+- SQLite and Peewee
+- Docstring and Type Hints
 
 ### Getting started 
 
@@ -50,17 +49,16 @@ Ignore the following steps if you have already installed Docker Compose, Python 
 - Follow steps from official site:  [Docker Engine Install](https://docs.docker.com/engine/install/ubuntu/) and [Docker Compose Install](https://docs.docker.com/compose/install/)
 
 2. Install one of:
-- Python 3.10.12 from official site:  [Python Downloads](https://www.python.org/downloads/)
-- IDE PyCharm with Python 3.10.12 from official site: [PyCharm Installation Guide](https://www.jetbrains.com/help/pycharm/installation-guide.html#standalone)
+- Python 3.10 from official site:  [Python Downloads](https://www.python.org/downloads/)
+- IDE (PyCharm, Visual Studio Code, ...)
 
 3. Install Git for "git clone" if required.
 - Follow steps from official site: [Git install](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-#### Clone or copy repository
+#### Clone repository
 
-Select one of the below options:
+Command line:
 - git clone from https://github.com/ssergey-92/telegram_bot.git
-- copy project from [github](https://github.com/ssergey-92/telegram_bot)
 
 #### Add .env file
 
