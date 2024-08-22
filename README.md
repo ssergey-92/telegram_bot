@@ -52,13 +52,14 @@ Ignore the following steps if you have already installed Docker Compose, Python 
 - Python 3.10 from official site:  [Python Downloads](https://www.python.org/downloads/)
 - IDE (PyCharm, Visual Studio Code, ...)
 
-3. Install Git for "git clone" if required.
+3. Install Git if required.
 - Follow steps from official site: [Git install](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 #### Clone repository
-
-Command line:
-- git clone from https://github.com/ssergey-92/telegram_bot.git
+- From command line:
+```
+git clone from https://github.com/ssergey-92/telegram_bot.git
+```
 
 #### Add .env file
 
@@ -68,7 +69,7 @@ Rename ".env.template" to ".env" and insert required data.
 
 #### Running the application:
 
-- From the command line: 
+- From command line: 
 ```
 cd 'your path to project root directory'
 python main.py
